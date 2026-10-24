@@ -12,9 +12,13 @@
 4. 只依赖标准库 + requests；不能用 lxml（Dify 沙箱没有），也不能依赖 pycryptodome
    （密码加密用本文件内置的纯 Python AES-256-CBC）。
 
-默认输出变量（在 Dify 节点里声明这两个）：
-    activities  Array[Object]
-    text        String
+Dify 输出变量（节点里只声明这一个）：
+    text  String     纯文本，形状固定：
+                     "共 N 场活动：" + 每条 "序号. 活动名称" + 缩进的 "字段：值" 行；
+                     抓不到时是 "本次没有抓取到符合条件的活动。" 或 "抓取失败：..."
+
+说明：早期版本同时返回 activities(Array[Object]) + text，现在精简为只返回 text，
+节点里也只需声明一个 String 输出变量（多声明/少声明都会触发上面的报错）。
 """
 
 import hashlib
@@ -42,7 +46,6 @@ except Exception:  # pragma: no cover
 USERNAME = ""                 # 留空：优先用 kwargs > 环境变量 CAS_USERNAME
 PASSWORD = ""                 # 留空：优先用 kwargs > 环境变量 CAS_PASSWORD
 
-INCLUDE_TEXT = True           # True：同时返回 text（给 LLM 节点当上下文用，必须是字符串）
 RAISE_ERRORS = False          # 排障时改 True；生产环境保持 False，失败返回空结果
 
 REQUEST_TIMEOUT = 10          # 单个请求超时（秒）
@@ -566,7 +569,7 @@ def _resolve_credentials(kwargs):
 
 
 def main(**kwargs):
-    """Dify 代码节点入口：返回 {"activities": [...], "text": "..."}。
+    """Dify 代码节点入口：永远返回 {"text": "..."}（只有一个 String 输出）。
 
     可用输入变量（都可省略）：
         username / password           账号密码（string）
@@ -575,9 +578,7 @@ def main(**kwargs):
         request_timeout               单请求超时（number）
         deadline_seconds              整体时间预算（number）
         crawl_only_future             是否只看未来（boolean）
-        include_text                  是否附带 text（boolean）
     """
-    include_text = _as_bool(kwargs.get("include_text"), INCLUDE_TEXT)
     activities = []
     text = ""
     try:
@@ -604,19 +605,18 @@ def main(**kwargs):
         if RAISE_ERRORS:
             raise
         text = "抓取失败：%s: %s" % (type(exc).__name__, exc)
-    result = {"activities": activities}
-    if include_text:
-        result["text"] = text
-    return result
+    # 只返回节点里声明过的键，多一个少一个都会让 Dify 报
+    # "Not all output parameters are validated."
+    return {"text": text}
 
 
 # ============================================================================
 # 部署到 Dify「代码执行」节点：
 #   1) 整份文件粘贴进节点（Python 3，已预装 requests 即可，无需其他依赖）；
-#   2) 输出变量必须声明为：activities（Array[Object]）、text（String）；
+#   2) 输出变量只声明一个：text（String）；
 #      多声明/少声明都会触发 "Not all output parameters are validated"；
 #   3) 输入变量（均可选）：username、password、crawl_max_pages、crawl_delay、
-#      request_timeout、deadline_seconds、crawl_only_future、include_text；
+#      request_timeout、deadline_seconds、crawl_only_future；
 #   4) 节点超时要 ≥ 30s：本内核默认在 20s 预算内返回，超预算会带着已抓到的数据退出。
 #
 # 本地自测（不写文件）：
