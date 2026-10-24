@@ -3,8 +3,8 @@
 
 流程：步骤1 预访问 CAS 入口 → 步骤2 POST 账号密码 → 签发/校验/落地 → 步骤4.5 SSO 中转 → 复核 → 步骤5 爬取。
 
-Dify 用法：整段粘进代码节点，节点声明一个输出变量 activities（类型 array[object]），
-返回值固定为 {"activities": [...]}。main() 永不抛异常。
+Dify 用法：整段粘进代码节点，节点只声明一个输出变量 text（类型 String），
+返回值固定为 {"text": "..."}（纯文本，格式见 render_activities_text）。main() 永不抛异常。
 
 Dify 的两个硬约束（踩过坑，别再改）：
   1. 返回值必须恰好只含节点声明过的键。多一个键 Dify 会报
@@ -16,9 +16,10 @@ Dify 的两个硬约束（踩过坑，别再改）：
      症状是 "Output result is missing."，而且只用 0.1 秒、0 token。
 
 其余接口：
-    run()                 -> {"activities": [...]}  核心实现，不打印任何东西。
+    run()                 -> {"activities": [...]}  核心实现，不打印任何东西（本地自测用）。
     collect_activities()  -> list[dict]             失败抛 CasError，想区分错误类型就用它。
-    main(**kwargs)        -> dict                   Dify 入口。
+    render_activities_text(list) -> str             把活动列表渲染成 main() 返回的那段纯文本。
+    main(**kwargs)        -> {"text": "..."}        Dify 入口，只含一个字符串输出。
 账号密码从参数、环境变量 CAS_USERNAME / CAS_PASSWORD 或下面的模块配置读取。
 """
 
@@ -65,10 +66,9 @@ RAISE_ERRORS = False
 _STAGE = ""
 _TRACE = []
 
-# 是否在返回值里额外带一份渲染好的纯文本（给 LLM 节点 / webhook 推送用）。
-# 打开后 Dify 代码节点必须多声明一个输出变量 text（String），否则会报
-# "Not all output parameters are validated."
-INCLUDE_TEXT = True
+# 说明：main() 只返回一个字符串输出变量 text（不再返回 activities 数组）。
+# text 就是 render_activities_text() 渲染出的纯文本，下游 merge_activities_text.py
+# 或 LLM / webhook 节点直接消费这段字符串即可。
 
 FORM_FIELD_USERNAME = "account"
 FORM_FIELD_PASSWORD = "password"
@@ -1143,8 +1143,7 @@ def main(**kwargs):
     """Dify 代码节点入口：必须返回 dict，键名与节点里声明的输出变量一致。
 
     输入全部可选（username / password / crawl_max_pages / ... ），
-    任何时候都返回 {"activities": [...]}（INCLUDE_TEXT 打开时多一个 "text"），
-    不会抛异常。
+    任何时候都返回 {"text": "..."}（只有一个 String 输出），不会抛异常。
     """
     try:
         apply_kwargs(kwargs)
@@ -1163,8 +1162,5 @@ def main(**kwargs):
     # 只返回节点里声明过的键：多一个少一个都会让 Dify 报
     # "Not all output parameters are validated."
     activities = result["activities"]
-    payload = {"activities": activities}
-    if INCLUDE_TEXT:
-        payload["text"] = render_activities_text(activities)
-    return payload
+    return {"text": render_activities_text(activities)}
 
