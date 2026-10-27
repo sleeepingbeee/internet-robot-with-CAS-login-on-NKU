@@ -1,0 +1,2361 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 活动报名搜集
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/feishu_message:0.0.8@b04e26ba2ff8c40311e06990d0694bceaf3e9f3d3f312696eec0aa82c65ca97a
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/sqlite:0.0.7@740c8b932eb0b067bf84079eef3eca0bd67eb3989f76ba026c8f8ef490d056d8
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: 00cd03c8-44bc-4714-a7cb-5cfcf4ff83c8
+    name: CAS_PASSWORD
+    selector:
+    - env
+    - CAS_PASSWORD
+    value: ''
+    value_type: secret
+  - description: ''
+    id: 23822b6e-0e71-4ef2-b5bf-69b151d8d3cd
+    name: CAS_USERNAME
+    selector:
+    - env
+    - CAS_USERNAME
+    value: ''
+    value_type: secret
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1792026183452-source-1792311372098-target
+      selected: false
+      source: '1792026183452'
+      sourceHandle: source
+      target: '1792311372098'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1792291426381-source-1792311372098-target
+      selected: false
+      source: '1792291426381'
+      sourceHandle: source
+      target: '1792311372098'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: code
+      id: 1792641964444-source-1792026183452-target
+      selected: false
+      source: '1792641964444'
+      sourceHandle: source
+      target: '1792026183452'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: code
+      id: 1792641964444-source-1792291426381-target
+      selected: false
+      source: '1792641964444'
+      sourceHandle: source
+      target: '1792291426381'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: tool
+      id: 1792641964444-source-1792804399381-target
+      selected: false
+      source: '1792641964444'
+      sourceHandle: source
+      target: '1792804399381'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1792804399381-source-1792805492446-target
+      selected: false
+      source: '1792804399381'
+      sourceHandle: source
+      target: '1792805492446'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1792805492446-source-1792809298130-target
+      selected: false
+      source: '1792805492446'
+      sourceHandle: source
+      target: '1792809298130'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1792311372098-source-1792809593300-target
+      selected: false
+      source: '1792311372098'
+      sourceHandle: source
+      target: '1792809593300'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1792809298130-source-1792809593300-target
+      selected: false
+      source: '1792809298130'
+      sourceHandle: source
+      target: '1792809593300'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1792809593300-source-1792810683941-target
+      selected: false
+      source: '1792809593300'
+      sourceHandle: source
+      target: '1792810683941'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1792810683941-source-1792810929242-target
+      selected: false
+      source: '1792810683941'
+      sourceHandle: source
+      target: '1792810929242'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1792809593300-source-1792811241613-target
+      selected: false
+      source: '1792809593300'
+      sourceHandle: source
+      target: '1792811241613'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1792811241613-false-1791985129224-target
+      selected: false
+      source: '1792811241613'
+      sourceHandle: 'false'
+      target: '1791985129224'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        config:
+          frequency: daily
+          mode: visual
+          timezone: UTC
+          visual_config:
+            monthly_days:
+            - 1
+            on_minute: 0
+            time: 12:00 AM
+            weekdays:
+            - sun
+        frequency: hourly
+        mode: visual
+        selected: false
+        timezone: Asia/Shanghai
+        title: 定时触发器
+        type: trigger-schedule
+        visual_config:
+          monthly_days:
+          - 1
+          on_minute: 0
+          time: 12:00 AM
+          weekdays:
+          - sun
+      height: 128
+      id: '1792641964444'
+      position:
+        x: 0
+        y: 73.28571428571429
+      positionAbsolute:
+        x: 0
+        y: 73.28571428571429
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/feishu_message
+        plugin_unique_identifier: langgenius/feishu_message:0.0.8@b04e26ba2ff8c40311e06990d0694bceaf3e9f3d3f312696eec0aa82c65ca97a
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=d409ca03-339a-4546-8c44-1eec906dd9ff&filename=512c1dd2a482998eec4976edc5904c9066b6e63b6f7dc2dbd7fc66cc78ca5c96.svg
+        provider_icon_dark: /console/api/workspaces/current/plugin/icon?tenant_id=d409ca03-339a-4546-8c44-1eec906dd9ff&filename=b2b6a717df7533530500edd2023f1a4706f248affa463e8dd0501a0f87f61f20.svg
+        provider_id: langgenius/feishu_message/feishu_message
+        provider_name: langgenius/feishu_message/feishu_message
+        provider_show_name: 飞书消息
+        provider_type: builtin
+        selected: false
+        title: 发送飞书应用消息
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: text
+          receive_id_type:
+            type: constant
+            value: user_id
+        tool_description: 发送飞书应用消息
+        tool_label: 发送飞书应用消息
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1792809593300.text#}}'
+          receive_id:
+            type: mixed
+            value: a36b8fd6
+        type: tool
+      height: 112
+      id: '1791985129224'
+      position:
+        x: 2107
+        y: 283.73809523809524
+      positionAbsolute:
+        x: 2107
+        y: 283.73809523809524
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "# -*- coding: utf-8 -*-\n\"\"\"南开 CAS 登录内核（Dify 代码节点版）。\n\n流程：步骤1 预访问\
+          \ CAS 入口 → 步骤2 POST 账号密码 → 签发/校验/落地 → 步骤4.5 SSO 中转 → 复核 → 步骤5 爬取。\n\nDify\
+          \ 用法：整段粘进代码节点，节点只声明一个输出变量 text（类型 String），\n返回值固定为 {\"text\": \"...\"}（纯文本，格式见\
+          \ render_activities_text）。main() 永不抛异常。\n\nDify 的两个硬约束（踩过坑，别再改）：\n  1. 返回值必须恰好只含节点声明过的键。多一个键\
+          \ Dify 会报\n     \"Not all output parameters are validated.\"（源码里是\n    \
+          \ len(parameters_validated) != len(result) 的判定）。\n  2. 全文不能出现 if __name__\
+          \ == \"__main__\" 之类的自执行代码。Dify 把整段代码\n     内联进它自己的 runner 脚本里执行，那段脚本的 __name__\
+          \ 就是 \"__main__\"，\n     一旦自执行（尤其 raise SystemExit）就会在 Dify 打结果标记之前退出，\n\
+          \     症状是 \"Output result is missing.\"，而且只用 0.1 秒、0 token。\n\n其余接口：\n \
+          \   run()                 -> {\"activities\": [...]}  核心实现，不打印任何东西（本地自测用）。\n\
+          \    collect_activities()  -> list[dict]             失败抛 CasError，想区分错误类型就用它。\n\
+          \    render_activities_text(list) -> str             把活动列表渲染成 main() 返回的那段纯文本。\n\
+          \    main(**kwargs)        -> {\"text\": \"...\"}        Dify 入口，只含一个字符串输出。\n\
+          账号密码从参数、环境变量 CAS_USERNAME / CAS_PASSWORD 或下面的模块配置读取。\n\"\"\"\n\nimport base64\n\
+          import datetime\nimport hashlib\nimport os\nimport re\nimport time\nimport\
+          \ warnings\nfrom urllib.parse import quote, unquote, urljoin, urlparse\n\
+          \nwarnings.filterwarnings(\"ignore\", message=\".*doesn't match a supported\
+          \ version.*\")\n\nimport requests\nfrom html.parser import HTMLParser\n\n\
+          try:\n    from Crypto.Cipher import AES as _PyCryptoAES\nexcept Exception:\n\
+          \    _PyCryptoAES = None\n\n# ---- 目标站点 ----\nCAS_LOGIN_PAGE_URL = \"https://xgb.nankai.edu.cn/login/fslogin\"\
+          \nCAS_AUTH_API_URL = \"https://iam.nankai.edu.cn/api/v1/login\"\nCAS_TICKET_ENDPOINT\
+          \ = \"https://iam.nankai.edu.cn/api/cas/login\"\nCAS_TICKET_URL = \"\"\n\
+          CAS_SERVICE_URL = \"https://xgb.nankai.edu.cn/login/fslogin\"\nSSO_PORTAL_URL\
+          \ = \"https://xgb.nankai.edu.cn/home/user/login.html\"\nSSO_LINK_KEYWORD\
+          \ = \"辅学\"\nBUSINESS_ENTRY_URLS = []\n\n# ---- 步骤2 请求形态 ----\nUSERNAME =\
+          \ \"\"\nPASSWORD = \"\"\nCREDENTIAL_ENV_USERNAME = \"CAS_USERNAME\"\nCREDENTIAL_ENV_PASSWORD\
+          \ = \"CAS_PASSWORD\"\n\n# ---- 调试开关 ----\n# 排查时改成 True：main() 不再吞异常，Dify\
+          \ 的 FAIL 面板会直接显示失败阶段和原因。\n# 正常使用时必须保持 False（否则登录失败会让工作流整体报错）。\nRAISE_ERRORS\
+          \ = False\n# 内部用：记录当前执行到哪一步，RAISE_ERRORS 打开时把阶段名带进异常信息。\n_STAGE = \"\"\n\
+          _TRACE = []\n\n# 说明：main() 只返回一个字符串输出变量 text（不再返回 activities 数组）。\n# text\
+          \ 就是 render_activities_text() 渲染出的纯文本，下游 merge_activities_text.py\n# 或 LLM\
+          \ / webhook 节点直接消费这段字符串即可。\n\nFORM_FIELD_USERNAME = \"account\"\nFORM_FIELD_PASSWORD\
+          \ = \"password\"\nAUTH_API_EXTRA_FORM = {\"login_scene\": \"feilian\", \"\
+          account_type\": \"userid\"}\nAUTH_API_EXTRA_QUERY = \"os=web\"\nAUTH_API_CONTENT_TYPE\
+          \ = \"json\"\nAUTH_API_EXTRA_HEADERS = {\n    \"X-Version-Check\": \"1\"\
+          ,\n    \"X-Fe-Version\": \"3.1.9.15606\",\n    \"Page-Name\": \"portal\"\
+          ,\n    \"Accept-Language\": \"zh-CN,zh;q=0.9\",\n}\nAUTH_API_SEND_CSRF_HEADER\
+          \ = True\n\n# ---- 判定规则 ----\nTICKET_JSON_KEYS = (\"ticket\", \"serviceTicket\"\
+          , \"TICKET\")\nAUTH_SUCCESS_JSON_KEY = \"code\"\nAUTH_SUCCESS_JSON_CODE\
+          \ = 0\nLOGIN_FAIL_KEYWORDS = (\"登录失败\", \"用户名或密码错误\", \"密码错误\", \"账号或密码错误\"\
+          , \"invalid\", \"incorrect\")\nLOGIN_SUCCESS_COOKIE_NAMES = (\"CASTGC\"\
+          , \"JSESSIONID\")\n\n# ---- 复核 ----\nVERIFY_LOGIN_URL = \"https://fuxue.nankai.edu.cn/student/kbmhd/type/1/p/1.html\"\
+          \n\n# ---- 请求通用 ----\nUSER_AGENT = \"Mozilla/5.0 (Windows NT 10.0; Win64;\
+          \ x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36\"\
+          \nREQUEST_TIMEOUT = 10\nVERIFY_SSL = True\n\n# ---- 加密 ----\nENCRYPT_PASSWORD\
+          \ = True\nAES_KEY_SEED = \"9007199254740991\"\nAES_KEY_HEX = \"\"\nAES_IV_HEX\
+          \ = \"\"\nAES_OUTPUT_ENCODING = \"hex\"\nAES_SELF_TEST_VECTOR = \"2b563d38ed5102f50e661c2cc33fec40\"\
+          \n\n# ---- 爬虫 ----\nCRAWL_ENABLED = True\nCRAWL_ONLY_FUTURE = True\nCRAWL_MAX_PAGES\
+          \ = 3\nCRAWL_DELAY = 0.0\nACTIVITY_FIELDS = [\"活动名称\", \"活动类型\", \"活动学时\"\
+          , \"活动时间\", \"活动地点\"]\nACTIVITY_COLUMN_ALIASES = {\n    \"活动名称\": (\"活动名称\"\
+          , \"活动标题\", \"讲座名称\", \"名称\", \"标题\"),\n    \"活动类型\": (\"活动类型\", \"活动类别\"\
+          , \"类型\", \"类别\"),\n    \"活动学时\": (\"活动学时\", \"实践学时\", \"学时\", \"学分\"),\n\
+          \    \"活动时间\": (\"活动时间\", \"举办时间\", \"活动日期\", \"时间\", \"日期\"),\n    \"活动地点\"\
+          : (\"活动地点\", \"举办地点\", \"活动场地\", \"地点\", \"场地\"),\n}\nCRAWL_TARGETS = [\n\
+          \    {\"name\": \"主题讲座\", \"url\": \"https://fuxue.nankai.edu.cn/student/kbmhd/type/1.html\"\
+          },\n    {\"name\": \"辅学活动\", \"url\": \"https://fuxue.nankai.edu.cn/student/kbmhd/type/2.html\"\
+          },\n]\n\n\nclass CasError(Exception):\n    def __init__(self, error_type,\
+          \ message):\n        super().__init__(message)\n        self.error_type\
+          \ = error_type\n        self.message = message\n\n\n# ============================\
+          \ 密码加密 ============================\n\ndef derive_key_iv():\n    key_hex\
+          \ = AES_KEY_HEX.strip().lower() if AES_KEY_HEX else hashlib.md5(AES_KEY_SEED.encode(\"\
+          utf-8\")).hexdigest()\n    key = key_hex.encode(\"utf-8\")\n    iv_hex_full\
+          \ = AES_IV_HEX.strip().lower() if AES_IV_HEX else hashlib.sha1(key_hex.encode(\"\
+          utf-8\")).hexdigest()\n    iv = iv_hex_full[:16].encode(\"utf-8\")\n   \
+          \ return key, iv\n\n\ndef pkcs7_pad(data, block_size=16):\n    pad_len =\
+          \ block_size - (len(data) % block_size)\n    return data + bytes([pad_len])\
+          \ * pad_len\n\n\ndef _xtime(value):\n    value <<= 1\n    if value & 0x100:\n\
+          \        value ^= 0x11B\n    return value & 0xFF\n\n\ndef _gmul(a, b):\n\
+          \    result = 0\n    while b:\n        if b & 1:\n            result ^=\
+          \ a\n        a = _xtime(a)\n        b >>= 1\n    return result & 0xFF\n\n\
+          \ndef _build_aes_sbox():\n    exp_table = [0] * 256\n    log_table = [0]\
+          \ * 256\n    value = 1\n    for i in range(255):\n        exp_table[i] =\
+          \ value\n        log_table[value] = i\n        value = _gmul(value, 3)\n\
+          \    inverse = [0] * 256\n    for x in range(1, 256):\n        inverse[x]\
+          \ = exp_table[(255 - log_table[x]) % 255]\n    sbox = [0] * 256\n    for\
+          \ x in range(256):\n        b = inverse[x]\n        s = b\n        for shift\
+          \ in (1, 2, 3, 4):\n            s ^= ((b << shift) | (b >> (8 - shift)))\
+          \ & 0xFF\n        sbox[x] = (s ^ 0x63) & 0xFF\n    return sbox\n\n\n_AES_SBOX\
+          \ = _build_aes_sbox()\n\n\ndef _aes_expand_key(key):\n    nk = len(key)\
+          \ // 4\n    nr = nk + 6\n    words = [list(key[4 * i:4 * i + 4]) for i in\
+          \ range(nk)]\n    rcon = 1\n    for i in range(nk, 4 * (nr + 1)):\n    \
+          \    temp = list(words[i - 1])\n        if i % nk == 0:\n            temp\
+          \ = [_AES_SBOX[temp[1]], _AES_SBOX[temp[2]], _AES_SBOX[temp[3]], _AES_SBOX[temp[0]]]\n\
+          \            temp[0] ^= rcon\n            rcon = _xtime(rcon)\n        elif\
+          \ nk > 6 and i % nk == 4:\n            temp = [_AES_SBOX[b] for b in temp]\n\
+          \        words.append([words[i - nk][j] ^ temp[j] for j in range(4)])\n\
+          \    return [bytes(b for word in words[4 * r:4 * r + 4] for b in word) for\
+          \ r in range(nr + 1)]\n\n\ndef _aes_encrypt_block(block, round_keys):\n\
+          \    state = list(block)\n    for i in range(16):\n        state[i] ^= round_keys[0][i]\n\
+          \    for rnd in range(1, len(round_keys) - 1):\n        state = [_AES_SBOX[b]\
+          \ for b in state]\n        shifted = [0] * 16\n        for row in range(4):\n\
+          \            for col in range(4):\n                shifted[4 * col + row]\
+          \ = state[4 * ((col + row) % 4) + row]\n        state = shifted\n      \
+          \  for col in range(4):\n            s0, s1, s2, s3 = state[4 * col:4 *\
+          \ col + 4]\n            t0 = _xtime(s0) ^ (_xtime(s1) ^ s1) ^ s2 ^ s3\n\
+          \            t1 = s0 ^ _xtime(s1) ^ (_xtime(s2) ^ s2) ^ s3\n           \
+          \ t2 = s0 ^ s1 ^ _xtime(s2) ^ (_xtime(s3) ^ s3)\n            t3 = (_xtime(s0)\
+          \ ^ s0) ^ s1 ^ s2 ^ _xtime(s3)\n            state[4 * col + 0], state[4\
+          \ * col + 1] = t0, t1\n            state[4 * col + 2], state[4 * col + 3]\
+          \ = t2, t3\n        for i in range(16):\n            state[i] ^= round_keys[rnd][i]\n\
+          \    state = [_AES_SBOX[b] for b in state]\n    shifted = [0] * 16\n   \
+          \ for row in range(4):\n        for col in range(4):\n            shifted[4\
+          \ * col + row] = state[4 * ((col + row) % 4) + row]\n    for i in range(16):\n\
+          \        shifted[i] ^= round_keys[-1][i]\n    return bytes(shifted)\n\n\n\
+          def _encrypt_with_pure_python(data, key, iv):\n    \"\"\"纯标准库 AES-256-CBC\
+          \ + PKCS7（沙箱里没有 pycryptodome 时唯一可行方案）。\"\"\"\n    round_keys = _aes_expand_key(key)\n\
+          \    padded = pkcs7_pad(data, 16)\n    output = bytearray()\n    previous\
+          \ = iv\n    for offset in range(0, len(padded), 16):\n        block = padded[offset:offset\
+          \ + 16]\n        mixed = bytes(a ^ b for a, b in zip(block, previous))\n\
+          \        previous = _aes_encrypt_block(mixed, round_keys)\n        output.extend(previous)\n\
+          \    return output.hex()\n\n\n_AES_BACKEND = \"pycryptodome\" if _PyCryptoAES\
+          \ is not None else \"pure-python\"\n\n\ndef aes_encrypt(plaintext):\n  \
+          \  \"\"\"明文密码 → 十六进制密文，与南开 IAM 前端 aesEncrypt() 结果一致。\n\n    有 pycryptodome\
+          \ 就用它，没有就用纯标准库实现（Dify 沙箱属于后者，\n    装不了第三方包，所以这条回退路径是必需的，不要删）。\n    \"\"\"\
+          \n    key, iv = derive_key_iv()\n    data = plaintext.encode(\"utf-8\")\n\
+          \    if _PyCryptoAES is not None:\n        cipher = _PyCryptoAES.new(key,\
+          \ _PyCryptoAES.MODE_CBC, iv)\n        cipher_hex = cipher.encrypt(pkcs7_pad(data,\
+          \ 16)).hex()\n    else:\n        cipher_hex = _encrypt_with_pure_python(data,\
+          \ key, iv)\n    if AES_OUTPUT_ENCODING.lower() == \"base64\":\n        return\
+          \ base64.b64encode(bytes.fromhex(cipher_hex)).decode(\"ascii\")\n    return\
+          \ cipher_hex\n\n\ndef self_test_crypto():\n    if aes_encrypt(\"demo-1234\"\
+          ) != AES_SELF_TEST_VECTOR:\n        raise CasError(\"crypto_self_test_failed\"\
+          , \"AES 自检未通过：加密结果与 iam.nankai.edu.cn 前端不一致\")\n\n\n# ============================\
+          \ 会话工具 ============================\n\ndef build_session():\n    session\
+          \ = requests.Session()\n    session.headers.update({\n        \"User-Agent\"\
+          : USER_AGENT,\n        \"Accept\": \"text/html,application/json,*/*\",\n\
+          \        \"Accept-Language\": \"zh-CN,zh;q=0.9\",\n        \"Connection\"\
+          : \"keep-alive\",\n    })\n    session.verify = VERIFY_SSL\n\n    from urllib3.util.retry\
+          \ import Retry\n\n    retry_kwargs = dict(total=2, connect=2, read=2, status=2,\n\
+          \                        backoff_factor=0.5, status_forcelist=(502, 503,\
+          \ 504), raise_on_status=False)\n    try:\n        retry = Retry(allowed_methods=frozenset((\"\
+          GET\",)), **retry_kwargs)\n    except TypeError:\n        retry = Retry(method_whitelist=frozenset((\"\
+          GET\",)), **retry_kwargs)\n    adapter = requests.adapters.HTTPAdapter(max_retries=retry)\n\
+          \    session.mount(\"https://\", adapter)\n    session.mount(\"http://\"\
+          , adapter)\n\n    if not VERIFY_SSL:\n        import urllib3\n\n       \
+          \ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)\n\
+          \    return session\n\n\ndef decode_response(response):\n    head = response.content[:2048].lower()\n\
+          \    if b\"utf-8\" in head or b\"utf8\" in head:\n        response.encoding\
+          \ = \"utf-8\"\n    else:\n        response.encoding = response.apparent_encoding\
+          \ or response.encoding\n    return response.text\n\n\ndef visible_text(response):\n\
+          \    body = decode_response(response)\n    if not body:\n        return\
+          \ \"\"\n    return html_to_text(body)\n\n\ndef cas_entry_url():\n    if\
+          \ CAS_TICKET_URL:\n        return CAS_TICKET_URL\n    if not CAS_TICKET_ENDPOINT\
+          \ or not CAS_SERVICE_URL:\n        return \"\"\n    separator = \"&\" if\
+          \ \"?\" in CAS_TICKET_ENDPOINT else \"?\"\n    return \"{}{}service={}\"\
+          .format(CAS_TICKET_ENDPOINT, separator, quote(CAS_SERVICE_URL, safe=\"\"\
+          ))\n\n\ndef extract_ticket(response):\n    data = None\n    try:\n     \
+          \   data = response.json()\n    except Exception:\n        data = None\n\
+          \n    if isinstance(data, dict):\n        for key in TICKET_JSON_KEYS:\n\
+          \            if data.get(key):\n                return str(data[key])\n\
+          \        for value in data.values():\n            if isinstance(value, dict):\n\
+          \                for key in TICKET_JSON_KEYS:\n                    if value.get(key):\n\
+          \                        return str(value[key])\n    if isinstance(data,\
+          \ str) and data and data.lower() != \"success\":\n        return data\n\n\
+          \    body = decode_response(response)\n    match = re.search(r'\"(?:ticket|serviceTicket|TICKET)\"\
+          \\s*:\\s*\"([^\"]+)\"', body or \"\")\n    if match:\n        return match.group(1)\n\
+          \n    locations = [response.headers.get(\"Location\", \"\")]\n    for hop\
+          \ in getattr(response, \"history\", None) or []:\n        locations.append(hop.headers.get(\"\
+          Location\", \"\"))\n    for location in locations:\n        match = re.search(r\"\
+          [?&]ticket=([^&#]+)\", location or \"\")\n        if match:\n          \
+          \  return unquote(match.group(1))\n    return None\n\n\ndef auth_hosts():\n\
+          \    hosts = set()\n    for url in (CAS_LOGIN_PAGE_URL, CAS_AUTH_API_URL,\
+          \ CAS_TICKET_ENDPOINT, CAS_TICKET_URL):\n        netloc = urlparse(url or\
+          \ \"\").netloc.lower()\n        if netloc:\n            hosts.add(netloc)\n\
+          \    return hosts\n\n\ndef classify_auth_redirect(url):\n    if not url:\n\
+          \        return \"other\"\n    parts = urlparse(url)\n    path = parts.path.lower()\n\
+          \    if \"/api/cas\" in path:\n        return \"issuer\"\n    if \"/api/\"\
+          \ in path:\n        return \"other\"\n    if path.rstrip(\"/\").endswith(\"\
+          /login\"):\n        return \"login\"\n    segments = [seg for seg in path.split(\"\
+          /\") if seg]\n    if segments and segments[0] == \"login\":\n        return\
+          \ \"login\"\n    auth_host = urlparse(CAS_AUTH_API_URL).netloc\n    if auth_host\
+          \ and parts.netloc == auth_host and \"/api/\" not in path:\n        return\
+          \ \"login\"\n    return \"other\"\n\n\ndef _get(session, url, step, **kwargs):\n\
+          \    kwargs.setdefault(\"timeout\", REQUEST_TIMEOUT)\n    try:\n       \
+          \ return session.get(url, **kwargs)\n    except requests.exceptions.RequestException\
+          \ as error:\n        raise CasError(\"network\", \"{}：请求失败 {} -> {}\".format(step,\
+          \ url, error))\n\n\n# ============================ 主流程 ============================\n\
+          \ndef step1_open_login_page(session):\n    response = _get(session, CAS_LOGIN_PAGE_URL,\
+          \ \"step1\", allow_redirects=False)\n    location = response.headers.get(\"\
+          Location\", \"\")\n    if response.is_redirect and location:\n        response\
+          \ = _get(session, urljoin(response.url, location), \"step1\", allow_redirects=False)\n\
+          \    if response.status_code >= 400:\n        raise CasError(\"http_error\"\
+          , \"step1：CAS 入口返回 HTTP {}\".format(response.status_code))\n    return {\"\
+          status\": response.status_code, \"url\": response.url}\n\n\ndef step2_post_credentials(session,\
+          \ username, password):\n    password_value = aes_encrypt(password) if ENCRYPT_PASSWORD\
+          \ else password\n\n    payload = {\n        FORM_FIELD_USERNAME: username,\n\
+          \        FORM_FIELD_PASSWORD: password_value,\n    }\n    payload.update(AUTH_API_EXTRA_FORM)\n\
+          \n    headers = dict(AUTH_API_EXTRA_HEADERS)\n    request_url = CAS_AUTH_API_URL\n\
+          \    if AUTH_API_EXTRA_QUERY:\n        request_url += (\"&\" if \"?\" in\
+          \ request_url else \"?\") + AUTH_API_EXTRA_QUERY\n    if AUTH_API_SEND_CSRF_HEADER:\n\
+          \        csrf = next((c.value for c in session.cookies if c.name == \"csrf-token\"\
+          ), \"\")\n        if csrf:\n            headers[\"csrf-token\"] = csrf\n\
+          \n    try:\n        if AUTH_API_CONTENT_TYPE == \"json\":\n            response\
+          \ = session.post(request_url, json=payload, headers=headers, timeout=REQUEST_TIMEOUT)\n\
+          \        else:\n            response = session.post(request_url, data=payload,\
+          \ headers=headers, timeout=REQUEST_TIMEOUT)\n    except requests.exceptions.RequestException\
+          \ as error:\n        raise CasError(\"network\", \"step2：POST 登录接口失败 ->\
+          \ {}\".format(error))\n\n    body = decode_response(response)\n    try:\n\
+          \        data = response.json()\n    except ValueError:\n        data =\
+          \ None\n\n    code_checked = isinstance(data, dict) and AUTH_SUCCESS_JSON_KEY\
+          \ in data\n    auth_ok = None\n    if code_checked and AUTH_SUCCESS_JSON_CODE\
+          \ is not None:\n        code = data.get(AUTH_SUCCESS_JSON_KEY)\n       \
+          \ auth_ok = code == AUTH_SUCCESS_JSON_CODE\n    # 判据：有票 → 成功；JSON 里明确给了\
+          \ code 但不是成功码 → 失败；其余（本站点接口不返回 code）→ 交给步骤2.5 现场签发\n\n    ticket = extract_ticket(response)\
+          \ or \"\"\n    validate_url = \"\"\n    location = response.headers.get(\"\
+          Location\", \"\")\n    if location and \"ticket=\" in location.lower():\n\
+          \        validate_url = urljoin(request_url, location)\n\n    if ticket:\n\
+          \        return {\"ticket\": ticket, \"validate_url\": validate_url}\n\n\
+          \    hints = []\n    if \"10110001\" in body:\n        hints.append(\"10110001\
+          \ = 用户名或密码错误（请求格式正确，账号或密码不对）\")\n    if \"10110002\" in body:\n        hints.append(\"\
+          10110002 = 认证方式不被允许（检查 AUTH_API_EXTRA_FORM 的 account_type）\")\n    if \"\
+          参数错误\" in body:\n        hints.append(\"『参数错误』= 请求体缺字段（对照抓包补进 AUTH_API_EXTRA_FORM）\"\
+          )\n    if any(word in body for word in LOGIN_FAIL_KEYWORDS):\n        hints.append(\"\
+          响应里出现了失败关键词\")\n\n    if auth_ok is False:\n        message = \"step2：登录未被服务端认可（{}={!r}，期望\
+          \ {!r}）\".format(\n            AUTH_SUCCESS_JSON_KEY, (data or {}).get(AUTH_SUCCESS_JSON_KEY),\
+          \ AUTH_SUCCESS_JSON_CODE)\n        if hints:\n            message += \"\
+          ；\" + \"；\".join(hints)\n        raise CasError(\"login_rejected\", message)\n\
+          \n    # 无票且无明确成功码：属于本站正常路径（票由步骤2.5 现场签发），不中止；仅当出现失败线索时才报错\n    if auth_ok\
+          \ is None and hints:\n        raise CasError(\"login_unconfirmed\", \"step2：无法确认登录结果；\"\
+          \ + \"；\".join(hints))\n\n    return {\"ticket\": None, \"validate_url\"\
+          : \"\"}\n\n\ndef establish_login_state(session, issued):\n    ticket = (issued\
+          \ or {}).get(\"ticket\") or \"\"\n    validate_url = (issued or {}).get(\"\
+          validate_url\") or \"\"\n\n    # ① 签发：必须 allow_redirects=False，否则 ticket\
+          \ 会被 requests 当场跟掉（票一次性，自动跟 = 立刻消费）\n    if not ticket and not validate_url:\n\
+          \        entry = cas_entry_url()\n        if not entry:\n            raise\
+          \ CasError(\"config_error\", \"CAS_TICKET_ENDPOINT / CAS_SERVICE_URL 未配置，无法签发\
+          \ ticket\")\n        probe = _get(session, entry, \"step2.5\", allow_redirects=False)\n\
+          \        location = probe.headers.get(\"Location\", \"\")\n        ticket\
+          \ = extract_ticket(probe) or \"\"\n        if ticket and location:\n   \
+          \         # 校验地址以服务器给的 Location 为准（保证签发/校验两边 service 逐字符一致）\n          \
+          \  validate_url = urljoin(probe.url or entry, location)\n        if not\
+          \ ticket:\n            if \"login\" in location.lower():\n             \
+          \   raise CasError(\"no_ticket\", \"签发入口把请求弹回了登录页，步骤2 的登录态没有建立\")\n    \
+          \        raise CasError(\"no_ticket\", \"签发入口的 Location 里没有 ticket（{}）\"\
+          .format(location or \"无 Location\"))\n\n    # ② 校验 + 落地：必须 allow_redirects=True，票据本来就要在这一跳被消费\n\
+          \    if not validate_url:\n        separator = \"&\" if \"?\" in CAS_SERVICE_URL\
+          \ else \"?\"\n        validate_url = \"{}{}ticket={}\".format(CAS_SERVICE_URL,\
+          \ separator, quote(ticket, safe=\"\"))\n    response = _get(session, validate_url,\
+          \ \"step3\", allow_redirects=True)\n\n    cookie_names = [cookie.name for\
+          \ cookie in session.cookies]\n    has_login_cookie = any(name in cookie_names\
+          \ for name in LOGIN_SUCCESS_COOKIE_NAMES)\n    if not has_login_cookie and\
+          \ any(word in visible_text(response) for word in LOGIN_FAIL_KEYWORDS):\n\
+          \        raise CasError(\"login_failed\", \"业务系统落地页出现登录失败提示\")\n\n    return\
+          \ {\n        \"status\": response.status_code,\n        \"final_url\": response.url,\n\
+          \        \"html\": decode_response(response),\n        \"ticket\": ticket,\n\
+          \        \"cookie_names\": cookie_names,\n    }\n\n\ndef extract_html_redirect(html,\
+          \ base_url):\n    if not html:\n        return None\n    patterns = (\n\
+          \        r'<meta[^>]+http-equiv\\s*=\\s*[\"\\']?refresh[\"\\']?[^>]*content\\\
+          s*=\\s*[\"\\'][^\"\\']*url\\s*=\\s*([^\"\\'>\\s]+)',\n        r'location\\\
+          s*\\.\\s*(?:href|replace)\\s*\\(\\s*[\"\\']([^\"\\']+)[\"\\']',\n      \
+          \  r'location\\s*\\.\\s*(?:href|replace)\\s*=\\s*[\"\\']([^\"\\']+)[\"\\\
+          ']',\n        r'window\\s*\\.\\s*open\\s*\\(\\s*[\"\\']([^\"\\']+)[\"\\\
+          ']',\n    )\n    for pattern in patterns:\n        match = re.search(pattern,\
+          \ html, re.IGNORECASE)\n        if match is None:\n            continue\n\
+          \        target = match.group(1).strip()\n        if target and not target.lower().startswith((\"\
+          javascript:\", \"#\")):\n            return urljoin(base_url, target)\n\
+          \    return None\n\n\ndef find_sso_entry_links(html, base_url):\n    results\
+          \ = []\n    for match in re.finditer(r'<a\\b[^>]*?href\\s*=\\s*[\"\\']([^\"\
+          \\']+)[\"\\'][^>]*>(.*?)</a>', html, re.IGNORECASE | re.DOTALL):\n     \
+          \   href = match.group(1).strip()\n        if not href or href.startswith((\"\
+          javascript:\", \"#\")):\n            continue\n        if \"orlogin\" not\
+          \ in href.lower():\n            continue\n        text = re.sub(r\"\\s+\"\
+          , \"\", re.sub(r\"<[^>]+>\", \"\", match.group(2)))\n        results.append((urljoin(base_url,\
+          \ href), text))\n    return results\n\n\ndef step4_5_enter_business_system(session,\
+          \ landing=None):\n    entry_urls = list(BUSINESS_ENTRY_URLS)\n    portal_url\
+          \ = SSO_PORTAL_URL\n\n    if SSO_PORTAL_URL:\n        portal_html = \"\"\
+          \n        if landing and landing.get(\"html\"):\n            land = urlparse(landing.get(\"\
+          final_url\") or \"\")\n            want = urlparse(SSO_PORTAL_URL)\n   \
+          \         if land.netloc and land.netloc == want.netloc and land.path.rstrip(\"\
+          /\") == want.path.rstrip(\"/\"):\n                portal_html = landing[\"\
+          html\"]\n                portal_url = landing.get(\"final_url\") or SSO_PORTAL_URL\n\
+          \        if not portal_html:\n            portal = _get(session, SSO_PORTAL_URL,\
+          \ \"step4.5\")\n            portal_html = decode_response(portal)\n    \
+          \        portal_url = portal.url\n\n        links = find_sso_entry_links(portal_html,\
+          \ portal_url)\n        picked = None\n        if SSO_LINK_KEYWORD:\n   \
+          \         for url, text in links:\n                if SSO_LINK_KEYWORD in\
+          \ text:\n                    picked = (url, text)\n                    break\n\
+          \            if picked is None:\n                for url, text in links:\n\
+          \                    if SSO_LINK_KEYWORD.lower() in url.lower():\n     \
+          \                   picked = (url, text)\n                        break\n\
+          \        if picked is not None:\n            entry_urls = [picked[0]]\n\
+          \        elif not entry_urls:\n            raise CasError(\"sso_entry_not_found\"\
+          ,\n                           \"门户页里没找到包含「{}」的 SSO 入口，且 BUSINESS_ENTRY_URLS\
+          \ 为空\".format(SSO_LINK_KEYWORD))\n\n    if not entry_urls:\n        return\
+          \ None\n\n    response = None\n    referer = portal_url if SSO_PORTAL_URL\
+          \ else \"\"\n\n    for entry in entry_urls:\n        headers = {\"Referer\"\
+          : referer} if referer else {}\n        current_url = entry\n        current_referer\
+          \ = referer\n        response = None\n        visited = {entry}\n      \
+          \  for _hop in range(10):\n            hop_headers = dict(headers)\n   \
+          \         if current_referer:\n                hop_headers[\"Referer\"]\
+          \ = current_referer\n            response = _get(session, current_url, \"\
+          step4.5\", allow_redirects=False, headers=hop_headers)\n            location\
+          \ = urljoin(current_url, response.headers[\"Location\"]) if response.headers.get(\"\
+          Location\") else \"\"\n            if response.is_redirect is False or not\
+          \ location:\n                break\n            if location in visited:\n\
+          \                raise CasError(\"redirect_loop\", \"step4.5：SSO 中转跳转成环（{}）\"\
+          .format(location))\n            visited.add(location)\n            current_referer\
+          \ = current_url\n            current_url = location\n\n        for _hop\
+          \ in range(5):\n            if response is None or response.status_code\
+          \ != 200:\n                break\n            target = extract_html_redirect(decode_response(response),\
+          \ response.url)\n            if not target or target in visited:\n     \
+          \           break\n            visited.add(target)\n            response\
+          \ = _get(session, target, \"step4.5\", allow_redirects=True, headers={\"\
+          Referer\": response.url})\n\n        referer = response.url or entry\n\n\
+          \    return {\n        \"status\": response.status_code,\n        \"final_url\"\
+          : response.url,\n        \"html\": decode_response(response),\n        \"\
+          cookie_names\": [cookie.name for cookie in session.cookies],\n    }\n\n\n\
+          def verify_single_request(session, target):\n    try:\n        response\
+          \ = session.get(target, timeout=REQUEST_TIMEOUT, allow_redirects=True)\n\
+          \    except requests.exceptions.RequestException:\n        return None\n\
+          \n    final = urlparse(response.url)\n    final_host = final.netloc.lower()\n\
+          \    if final_host in auth_hosts() and \"/login\" in final.path:\n     \
+          \   return False\n    if any(word in visible_text(response) for word in\
+          \ LOGIN_FAIL_KEYWORDS):\n        return False\n    return True\n\n\ndef\
+          \ verify_login_state(session):\n    return verify_single_request(session,\
+          \ VERIFY_LOGIN_URL or CAS_SERVICE_URL)\n\n\n# ============================\
+          \ 步骤5 爬虫 ============================\n\n_BLOCK_TAGS = frozenset((\n   \
+          \ \"address\", \"article\", \"aside\", \"blockquote\", \"br\", \"dd\", \"\
+          div\", \"dl\", \"dt\",\n    \"fieldset\", \"figcaption\", \"figure\", \"\
+          footer\", \"form\", \"h1\", \"h2\", \"h3\", \"h4\",\n    \"h5\", \"h6\"\
+          , \"header\", \"hr\", \"li\", \"main\", \"nav\", \"ol\", \"p\", \"pre\"\
+          , \"section\",\n    \"table\", \"tbody\", \"td\", \"tfoot\", \"th\", \"\
+          thead\", \"tr\", \"ul\",\n))\n_SKIP_TEXT_TAGS = frozenset((\"script\", \"\
+          style\", \"noscript\", \"template\"))\n_VOID_TAGS = frozenset((\n    \"\
+          area\", \"base\", \"br\", \"col\", \"embed\", \"hr\", \"img\", \"input\"\
+          , \"link\", \"meta\",\n    \"param\", \"source\", \"track\", \"wbr\",\n\
+          ))\n\n\ndef html_to_text(document):\n    \"\"\"把 HTML 转成可见文字：剥离 script/style\
+          \ 与全部标签，块级标签当空白处理。\"\"\"\n    if document is None:\n        return \"\"\n\
+          \    if isinstance(document, bytes):\n        try:\n            document\
+          \ = document.decode(\"utf-8\", \"replace\")\n        except Exception:\n\
+          \            document = str(document)\n    text = str(document)\n    if\
+          \ \"<\" not in text:\n        return re.sub(r\"\\s+\", \" \", text).strip()\n\
+          \n    class _TextExtractor(HTMLParser):\n        def __init__(self):\n \
+          \           HTMLParser.__init__(self, convert_charrefs=True)\n         \
+          \   self.parts = []\n            self.depth = 0\n\n        def handle_starttag(self,\
+          \ tag, attrs):\n            if tag in _SKIP_TEXT_TAGS:\n               \
+          \ self.depth += 1\n                return\n            if self.depth:\n\
+          \                return\n            if tag in _VOID_TAGS:\n           \
+          \     if tag == \"br\":\n                    self.parts.append(\"\\n\")\n\
+          \                return\n            if tag in _BLOCK_TAGS:\n          \
+          \      self.parts.append(\"\\n\")\n\n        def handle_startendtag(self,\
+          \ tag, attrs):\n            if self.depth:\n                return\n   \
+          \         if tag == \"br\":\n                self.parts.append(\"\\n\")\n\
+          \n        def handle_endtag(self, tag):\n            if tag in _SKIP_TEXT_TAGS:\n\
+          \                if self.depth:\n                    self.depth -= 1\n \
+          \               return\n            if self.depth:\n                return\n\
+          \            if tag in _BLOCK_TAGS:\n                self.parts.append(\"\
+          \\n\")\n\n        def handle_data(self, data):\n            if not self.depth:\n\
+          \                self.parts.append(data)\n\n    extractor = _TextExtractor()\n\
+          \    try:\n        extractor.feed(text)\n        extractor.close()\n   \
+          \     raw = \"\".join(extractor.parts)\n    except Exception:\n        raw\
+          \ = re.sub(r\"<[^>]*>\", \" \", text)\n    return re.sub(r\"\\s+\", \" \"\
+          , raw).strip()\n\n\nclass _TableCollector(HTMLParser):\n    \"\"\"收集第一个\
+          \ class 含 typetable1 的表格；行记为 {\"class\": str, \"cells\": [str]}。\"\"\"\n\
+          \n    def __init__(self):\n        HTMLParser.__init__(self, convert_charrefs=True)\n\
+          \        self.depth = 0\n        self.target_depth = 0\n        self.rows\
+          \ = []\n        self.row = None\n        self.cell = None\n        self.done\
+          \ = False\n\n    def handle_starttag(self, tag, attrs):\n        if self.done:\n\
+          \            return\n        mapping = dict(attrs)\n        if self.depth\
+          \ == 0:\n            if tag == \"table\":\n                classes = mapping.get(\"\
+          class\", \"\")\n                if \"typetable1\" in classes.split():\n\
+          \                    self.depth = 1\n                    self.target_depth\
+          \ = 1\n                else:\n                    self.depth = 0\n     \
+          \               self.target_depth = 0\n            return\n        if tag\
+          \ == \"table\":\n            self.depth += 1\n            return\n     \
+          \   if tag == \"tr\":\n            self.row = {\"class\": mapping.get(\"\
+          class\", \"\"), \"cells\": []}\n            self.rows.append(self.row)\n\
+          \            return\n        if tag in (\"td\", \"th\") and self.row is\
+          \ not None:\n            self.cell = []\n\n    def handle_endtag(self, tag):\n\
+          \        if self.done:\n            return\n        if tag == \"table\"\
+          :\n            if self.depth > 0:\n                self.depth -= 1\n   \
+          \             if self.depth == 0:\n                    self.done = True\n\
+          \            return\n        if tag == \"tr\":\n            self.row = None\n\
+          \            self.cell = None\n            return\n        if tag in (\"\
+          td\", \"th\"):\n            if self.cell is not None and self.row is not\
+          \ None:\n                self.row[\"cells\"].append(re.sub(r\"\\s+\", \"\
+          \ \", \"\".join(self.cell)).strip())\n            self.cell = None\n\n \
+          \   def handle_data(self, data):\n        if self.done:\n            return\n\
+          \        if self.cell is not None:\n            self.cell.append(data)\n\
+          \n\ndef parse_activity_table(document):\n    \"\"\"从页面里找第一个 class 含 typetable1\
+          \ 的表格，返回 (表头, 数据行)。\"\"\"\n    if document is None:\n        return [],\
+          \ []\n    if isinstance(document, bytes):\n        try:\n            document\
+          \ = document.decode(\"utf-8\", \"replace\")\n        except Exception:\n\
+          \            document = str(document)\n    text = str(document)\n    collector\
+          \ = _TableCollector()\n    try:\n        collector.feed(text)\n        collector.close()\n\
+          \    except Exception:\n        return [], []\n    if not collector.rows:\n\
+          \        return [], []\n\n    headers = []\n    for tr in collector.rows:\n\
+          \        if \"tr1\" in tr[\"class\"].split():\n            headers = list(tr[\"\
+          cells\"])\n            break\n\n    rows = []\n    for tr in collector.rows:\n\
+          \        cells = list(tr[\"cells\"])\n        if not cells:\n          \
+          \  continue\n        if \"tr1\" in tr[\"class\"].split():\n            continue\n\
+          \        if headers and cells == headers:\n            continue\n      \
+          \  if all(cell == \"\" for cell in cells):\n            continue\n     \
+          \   rows.append(cells)\n    return headers, rows\n\n\ndef map_activity_columns(headers,\
+          \ width):\n    index = {}\n    used = set()\n    for field in ACTIVITY_FIELDS:\n\
+          \        for head_index, head in enumerate(headers):\n            if head_index\
+          \ in used:\n                continue\n            for alias in ACTIVITY_COLUMN_ALIASES.get(field,\
+          \ ()):\n                if alias and alias in head:\n                  \
+          \  index[field] = head_index\n                    used.add(head_index)\n\
+          \                    break\n            if field in index:\n           \
+          \     break\n    for fallback, field in enumerate(ACTIVITY_FIELDS):\n  \
+          \      if field not in index and fallback < width:\n            index[field]\
+          \ = fallback\n    return index\n\n\ndef normalize_fullwidth(text):\n   \
+          \ table = {ord(c): ord(h) for c, h in zip(\"０１２３４５６７８９\", \"0123456789\"\
+          )}\n    table.update({ord(\"－\"): ord(\"-\"), ord(\"／\"): ord(\"/\"), ord(\"\
+          ．\"): ord(\".\")})\n    return (text or \"\").translate(table)\n\n\nDATE_PATTERNS\
+          \ = (\n    re.compile(r\"(\\d{4})\\s*[-/年\\.]\\s*(\\d{1,2})\\s*[-/月\\.]\\\
+          s*(\\d{1,2})\\s*日?\"),\n    re.compile(r\"(?<![\\d:])(\\d{1,2})\\s*[-/月\\\
+          .]\\s*(\\d{1,2})\\s*日?(?![\\d:])\"),\n)\n\n\ndef extract_activity_date(text):\n\
+          \    text = normalize_fullwidth(text)\n    for pattern in DATE_PATTERNS:\n\
+          \        match = pattern.search(text)\n        if match is None:\n     \
+          \       continue\n        groups = match.groups()\n        if len(groups)\
+          \ == 3:\n            year, month, day = (int(g) for g in groups)\n     \
+          \   else:\n            year = datetime.date.today().year\n            month,\
+          \ day = int(groups[0]), int(groups[1])\n        try:\n            return\
+          \ datetime.date(year, month, day)\n        except ValueError:\n        \
+          \    continue\n    return None\n\n\ndef is_activity_future(time_text, today):\n\
+          \    activity_date = extract_activity_date(time_text)\n    if activity_date\
+          \ is None:\n        return None\n    return activity_date > today\n\n\n\
+          def activity_page_url(list_url, page):\n    root = re.sub(r\"/p/\\d+\\.html?$\"\
+          , \"\", list_url.rstrip(\"/\"), flags=re.IGNORECASE)\n    if root.lower().endswith(\"\
+          .html\"):\n        root = root[:-5]\n    return \"{}/p/{}.html\".format(root,\
+          \ page)\n\n\ndef parse_max_page(document):\n    if document is None:\n \
+          \       return 1\n    if isinstance(document, bytes):\n        try:\n  \
+          \          document = document.decode(\"utf-8\", \"replace\")\n        except\
+          \ Exception:\n            document = str(document)\n    pages = [1]\n  \
+          \  for match in re.finditer(r\"\"\"href\\s*=\\s*[\"']([^\"']*)[\"']\"\"\"\
+          , str(document), re.IGNORECASE):\n        page_match = re.search(r\"/p/(\\\
+          d+)\\.html?\", match.group(1), re.IGNORECASE)\n        if page_match is\
+          \ not None:\n            pages.append(int(page_match.group(1)))\n    return\
+          \ max(pages)\n\n\ndef crawl_activity_list(session, target, today):\n   \
+          \ name = target.get(\"name\", \"\")\n    list_url = target.get(\"url\",\
+          \ \"\")\n    kept = []\n    seen = set()\n    page = 1\n    max_page = 1\n\
+          \n    while page <= max_page and page <= CRAWL_MAX_PAGES:\n        url =\
+          \ activity_page_url(list_url, page)\n        response = _get(session, url,\
+          \ \"crawl\")\n        if \"/login/index.html\" in response.url or \"统一身份认证登录\"\
+          \ in response.text:\n            raise CasError(\"session_expired\", \"\
+          爬虫：已被踢回登录页，登录态失效（{}）\".format(url))\n        if response.status_code !=\
+          \ 200:\n            break\n        html = decode_response(response)\n  \
+          \      headers, rows = parse_activity_table(html)\n        page_max = parse_max_page(html)\n\
+          \        if page_max > max_page:\n            max_page = page_max\n\n  \
+          \      index = map_activity_columns(headers, max((len(r) for r in rows),\
+          \ default=0))\n        for cells in rows:\n            item = {}\n     \
+          \       for field in ACTIVITY_FIELDS:\n                column = index.get(field)\n\
+          \                item[field] = cells[column] if (column is not None and\
+          \ column < len(cells)) else \"\"\n            if not item[\"活动名称\"]:\n \
+          \               continue\n            key = (item[\"活动名称\"], item[\"活动时间\"\
+          ])\n            if key in seen:\n                continue\n            seen.add(key)\n\
+          \            if CRAWL_ONLY_FUTURE and is_activity_future(item[\"活动时间\"],\
+          \ today) is False:\n                continue\n            kept.append(item)\n\
+          \n        if not rows:\n            break\n        page += 1\n        if\
+          \ page <= max_page and CRAWL_DELAY > 0:\n            time.sleep(CRAWL_DELAY)\n\
+          \    return kept\n\n\ndef step5_crawl_business_data(session):\n    if CRAWL_ENABLED\
+          \ is False:\n        return []\n    today = datetime.date.today()\n    results\
+          \ = []\n    for target in CRAWL_TARGETS:\n        results.extend(crawl_activity_list(session,\
+          \ target, today))\n    return results\n\n\n# ============================\
+          \ 入口 ============================\n\ndef resolve_credentials(username=None,\
+          \ password=None):\n    name = CREDENTIAL_ENV_USERNAME\n    pwd = CREDENTIAL_ENV_PASSWORD\n\
+          \    final_username = username if username else (os.environ.get(name, \"\
+          \").strip() or USERNAME)\n    final_password = password if password else\
+          \ (os.environ.get(pwd, \"\") or PASSWORD)\n    if not final_username or\
+          \ not final_password:\n        raise CasError(\n            \"missing_credentials\"\
+          ,\n            \"缺少账号或密码（可传入参数，或设置环境变量 {} / {}）\".format(name, pwd),\n \
+          \       )\n    return final_username, final_password\n\n\ndef check_config():\n\
+          \    missing = []\n    if not CAS_LOGIN_PAGE_URL:\n        missing.append(\"\
+          CAS_LOGIN_PAGE_URL\")\n    if not CAS_AUTH_API_URL:\n        missing.append(\"\
+          CAS_AUTH_API_URL\")\n    if not CAS_SERVICE_URL:\n        missing.append(\"\
+          CAS_SERVICE_URL\")\n    if not CAS_TICKET_ENDPOINT and not CAS_TICKET_URL:\n\
+          \        missing.append(\"CAS_TICKET_ENDPOINT\")\n    if CAS_TICKET_URL\
+          \ and CAS_SERVICE_URL and CAS_SERVICE_URL not in CAS_TICKET_URL:\n     \
+          \   missing.append(\"CAS_TICKET_URL(service 与 CAS_SERVICE_URL 不一致)\")\n\
+          \    if AES_KEY_HEX and len(AES_KEY_HEX.strip()) != 32:\n        missing.append(\"\
+          AES_KEY_HEX(必须 32 个字符)\")\n    if AES_IV_HEX and len(AES_IV_HEX.strip())\
+          \ < 16:\n        missing.append(\"AES_IV_HEX(至少 16 个字符)\")\n    if missing:\n\
+          \        raise CasError(\"config_error\", \"配置缺失或不合法：\" + \", \".join(missing))\n\
+          \n\ndef collect_activities(username=None, password=None):\n    \"\"\"执行登录并返回活动列表（list[dict]）；任何失败都抛\
+          \ CasError。\"\"\"\n    global _STAGE\n    _STAGE = \"配置检查\"\n    _TRACE.clear()\n\
+          \    check_config()\n\n    if AES_SELF_TEST_VECTOR:\n        _STAGE = \"\
+          AES 自检\"\n        self_test_crypto()\n\n    _STAGE = \"凭据解析\"\n    username,\
+          \ password = resolve_credentials(username, password)\n\n    _STAGE = \"\
+          建立会话\"\n    session = build_session()\n    _STAGE = \"步骤1 预访问 CAS 入口\"\n\
+          \    page = step1_open_login_page(session)\n    _TRACE.append(\"步骤1 状态=%s\
+          \ 跳数=%s\" % (page.get(\"status\"), len(page.get(\"hops\") or [])))\n   \
+          \ _STAGE = \"步骤2 提交账号密码\"\n    issued = step2_post_credentials(session,\
+          \ username, password)\n    _TRACE.append(\"步骤2 拿到ticket=%s\" % (\"有\" if\
+          \ issued.get(\"ticket\") else \"无\"))\n    _STAGE = \"步骤2.5~4 签发并校验 ticket\"\
+          \n    landing = establish_login_state(session, issued)\n    _TRACE.append(\"\
+          校验跳最终URL=%s\" % landing.get(\"final_url\"))\n\n    _STAGE = \"步骤4.5 SSO\
+          \ 中转\"\n    enter = step4_5_enter_business_system(session, landing)\n  \
+          \  if enter is not None and enter.get(\"final_url\"):\n        landing =\
+          \ enter\n    _TRACE.append(\"步骤4.5 最终URL=%s\" % (enter or {}).get(\"final_url\"\
+          ))\n\n    _STAGE = \"登录态复核\"\n    verified = verify_login_state(session)\n\
+          \    _TRACE.append(\"登录态复核=%s\" % verified)\n    if verified is False:\n\
+          \        raise CasError(\"verify_failed\", \"登录态复核未通过：目标页面把请求送回了登录页\")\n\
+          \    if not CRAWL_ENABLED:\n        _TRACE.append(\"爬取被 CRAWL_ENABLED 关闭\"\
+          )\n        return []\n\n    _STAGE = \"步骤5 爬取活动列表\"\n    items = step5_crawl_business_data(session)\n\
+          \    _TRACE.append(\"抓到 %d 条活动\" % len(items))\n    return items\n\n\ndef\
+          \ run(username=None, password=None):\n    \"\"\"核心实现：返回 {\"activities\"\
+          : [...]}。\n\n    RAISE_ERRORS 为 False 时永不抛异常（失败返回空列表）；\n    为 True 时把原始异常抛给调用方，便于在\
+          \ Dify 面板里看原因。\n    \"\"\"\n    try:\n        activities = collect_activities(username=username,\
+          \ password=password)\n    except Exception as exc:\n        if RAISE_ERRORS:\n\
+          \            raise CasError(\n                \"debug\",\n             \
+          \   \"[{}] {}: {}\".format(_STAGE or \"未知阶段\", type(exc).__name__, exc),\n\
+          \            ) from None\n        activities = []\n    if not isinstance(activities,\
+          \ list):\n        activities = []\n    # 调试模式：流程走完却一条都没抓到，把每步轨迹抛出去（否则面板上只显示\
+          \ []）\n    if RAISE_ERRORS and not activities:\n        raise CasError(\"\
+          empty_result\", \"登录流程走完但结果为 0 条 → \" + \" | \".join(_TRACE))\n    return\
+          \ {\"activities\": activities}\n\n\ndef render_activities_text(activities):\n\
+          \    \"\"\"把活动列表渲染成纯文本，供 LLM 节点或 webhook 推送直接使用。\n\n    输出是字符串（Dify 里声明为\
+          \ String 类型的输出变量），每场活动三到四行，\n    形状稳定、不依赖 LLM 的格式化能力。\n    \"\"\"\n    items\
+          \ = [item for item in (activities or []) if isinstance(item, dict)]\n  \
+          \  if not items:\n        return \"本次没有抓取到符合条件的活动。\"\n    lines = [\"共 {}\
+          \ 场活动：\".format(len(items))]\n    for index, item in enumerate(items, 1):\n\
+          \        title = str(item.get(\"活动名称\", \"\") or \"\").strip() or \"（未命名活动）\"\
+          \n        lines.append(\"{}. {}\".format(index, title))\n        for label\
+          \ in (\"活动时间\", \"活动地点\", \"活动类型\", \"活动学时\"):\n            value = str(item.get(label,\
+          \ \"\") or \"\").strip()\n            if value:\n                lines.append(\"\
+          \   {}：{}\".format(label, value))\n    return \"\\n\".join(lines)\n\n\n\
+          def apply_kwargs(kwargs):\n    \"\"\"把 Dify 节点传来的参数覆盖到模块配置上。\n\n    支持的键：username\
+          \ / password / crawl_max_pages / crawl_delay /\n    request_timeout / crawl_only_future\
+          \ / activity_fields / crawl_targets。\n    传空值等于“用默认值”。\n    \"\"\"\n   \
+          \ if not isinstance(kwargs, dict):\n        return\n    username = kwargs.get(\"\
+          username\")\n    if username:\n        globals()[\"USERNAME\"] = str(username)\n\
+          \    password = kwargs.get(\"password\")\n    if password:\n        globals()[\"\
+          PASSWORD\"] = str(password)\n    for key, caster in (\n        (\"crawl_max_pages\"\
+          , int),\n        (\"request_timeout\", int),\n        (\"crawl_delay\",\
+          \ float),\n    ):\n        value = kwargs.get(key)\n        if value not\
+          \ in (None, \"\"):\n            try:\n                globals()[key.upper()]\
+          \ = caster(value)\n            except (TypeError, ValueError):\n       \
+          \         pass\n    if kwargs.get(\"crawl_only_future\") is not None:\n\
+          \        globals()[\"CRAWL_ONLY_FUTURE\"] = bool(kwargs.get(\"crawl_only_future\"\
+          ))\n    fields = kwargs.get(\"activity_fields\")\n    if isinstance(fields,\
+          \ list) and fields:\n        globals()[\"ACTIVITY_FIELDS\"] = [str(item)\
+          \ for item in fields]\n    targets = kwargs.get(\"crawl_targets\")\n   \
+          \ if isinstance(targets, list) and targets:\n        cleaned = [\n     \
+          \       {\"name\": str(item.get(\"name\", \"\")), \"url\": str(item.get(\"\
+          url\", \"\"))}\n            for item in targets\n            if isinstance(item,\
+          \ dict) and item.get(\"url\")\n        ]\n        if cleaned:\n        \
+          \    globals()[\"CRAWL_TARGETS\"] = cleaned\n\n\ndef main(**kwargs):\n \
+          \   \"\"\"Dify 代码节点入口：必须返回 dict，键名与节点里声明的输出变量一致。\n\n    输入全部可选（username\
+          \ / password / crawl_max_pages / ... ），\n    任何时候都返回 {\"text\": \"...\"\
+          }（只有一个 String 输出），不会抛异常。\n    \"\"\"\n    try:\n        apply_kwargs(kwargs)\n\
+          \    except Exception:\n        pass\n    try:\n        result = run()\n\
+          \    except Exception:\n        if RAISE_ERRORS:\n            raise\n  \
+          \      result = {\"activities\": []}\n    if not isinstance(result, dict):\n\
+          \        result = {\"activities\": []}\n    if not isinstance(result.get(\"\
+          activities\"), list):\n        result = {\"activities\": []}\n    # 只返回节点里声明过的键：多一个少一个都会让\
+          \ Dify 报\n    # \"Not all output parameters are validated.\"\n    activities\
+          \ = result[\"activities\"]\n    return {\"text\": render_activities_text(activities)}\n\
+          \n"
+        code_language: python3
+        outputs:
+          text:
+            children: null
+            type: string
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        title: 爬取辅学系统
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - CAS_USERNAME
+          value_type: secret
+          variable: username
+        - value_selector:
+          - env
+          - CAS_PASSWORD
+          value_type: secret
+          variable: password
+      height: 50
+      id: '1792026183452'
+      position:
+        x: 362
+        y: 0
+      positionAbsolute:
+        x: 362
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "# -*- coding: utf-8 -*-\n\"\"\"cas_core.py —— 南开志愿系统（zyfw.nankai.edu.cn）登录\
+          \ + 活动抓取内核。\n\n本文件专为 Dify「代码执行」节点设计，硬约束（改代码时不要破坏）：\n\n1. 入口必须是 ``def main(**kwargs)\
+          \ -> dict``，Dify 通过 ``main(**inputs_obj)`` 取结果；\n2. 返回 dict 的键必须和 Dify 节点里声明的「输出变量」**完全一致**（多一个、少一个都会\n\
+          \   报 ``Not all output parameters are validated.``）；\n3. 模块顶层不能有 print /\
+          \ 自执行 / 文件读写 —— Dify 会把整段代码内联进自己的 runner\n   并以 ``__name__ == \"__main__\"\
+          `` 执行，任何自执行块都会让 Dify 拿不到 ``<<RESULT>>``，\n   报 ``Output result is missing.``；\n\
+          4. 只依赖标准库 + requests；不能用 lxml（Dify 沙箱没有），也不能依赖 pycryptodome\n   （密码加密用本文件内置的纯\
+          \ Python AES-256-CBC）。\n\nDify 输出变量（节点里只声明这一个）：\n    text  String     纯文本，形状固定：\n\
+          \                     \"共 N 场活动：\" + 每条 \"序号. 活动名称\" + 缩进的 \"字段：值\" 行；\n\
+          \                     抓不到时是 \"本次没有抓取到符合条件的活动。\" 或 \"抓取失败：...\"\n\n说明：早期版本同时返回\
+          \ activities(Array[Object]) + text，现在精简为只返回 text，\n节点里也只需声明一个 String 输出变量（多声明/少声明都会触发上面的报错）。\n\
+          \"\"\"\n\nimport hashlib\nimport json\nimport re\nimport time\nfrom datetime\
+          \ import datetime\nfrom html import unescape\nfrom html.parser import HTMLParser\n\
+          from urllib.parse import urljoin\n\ntry:  # Dify 沙箱一般预装 requests；缺失时退化到空结果而不是让节点直接报错\n\
+          \    import requests\n    from requests.adapters import HTTPAdapter\n  \
+          \  from urllib3.util.retry import Retry\nexcept Exception:  # pragma: no\
+          \ cover\n    requests = None\n    HTTPAdapter = None\n    Retry = None\n\
+          \n\n# ============================================================================\n\
+          # 配置区（Dify 里可以不改代码，用输入变量覆盖；见 main 的 kwargs）\n# ============================================================================\n\
+          USERNAME = \"\"                 # 留空：优先用 kwargs > 环境变量 CAS_USERNAME\nPASSWORD\
+          \ = \"\"                 # 留空：优先用 kwargs > 环境变量 CAS_PASSWORD\n\nRAISE_ERRORS\
+          \ = False          # 排障时改 True；生产环境保持 False，失败返回空结果\n\nREQUEST_TIMEOUT =\
+          \ 10          # 单个请求超时（秒）\nDEADLINE_SECONDS = 20         # 整次执行的时间预算；Dify\
+          \ 代码节点通常 30s 上限\nCRAWL_MAX_PAGES = 15           # 最多翻几个列表页（每页 10 条，每条都要再请求详情页）\n\
+          CRAWL_DELAY = 0.0             # 详情页之间的间隔（秒），0 表示不等待\nCRAWL_ONLY_FUTURE =\
+          \ True      # 只保留开始时间在未来的活动\nMAX_RETRIES = 3               # 只对 GET 生效；登录\
+          \ POST 绝不重试\n\nBASE_URL = \"https://zyfw.nankai.edu.cn\"\nIAM_BASE = \"\
+          https://iam.nankai.edu.cn\"\nLOGIN_PAGE_URL = BASE_URL + \"/Login/index.aspx\"\
+          \nLOGIN_API_URL = IAM_BASE + \"/api/v1/login\"\nLIST_URL_TEMPLATE = BASE_URL\
+          \ + \"/Index/huodong/p/{page}.aspx\"\n\nHEADERS = {\n    \"User-Agent\"\
+          : (\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \"\n \
+          \                  \"(KHTML, like Gecko) Chrome/120.0 Safari/537.36\"),\n\
+          \    \"Accept-Language\": \"zh-CN,zh;q=0.9\",\n}\n\n# 输出字典的字段顺序（与抓取到的 8\
+          \ 个要素一致，另加一个详情页链接）\nACTIVITY_KEYS = (\"活动名称\", \"组织机构\", \"联系人\", \"联系电话\"\
+          ,\n                 \"活动时间\", \"活动地点\", \"志愿时长\", \"招募人数\")\n\n\n# ============================================================================\n\
+          # 1. 密码加密：AES-256-CBC / PKCS7（纯 Python，等价于前端 crypto-js 的结果）\n# ============================================================================\n\
+          AES_SEED = \"9007199254740991\"     # 前端 Number.MAX_SAFE_INTEGER.toString()，算法的一部分\n\
+          \n\ndef _key_iv():\n    key_hex = hashlib.md5(AES_SEED.encode(\"utf-8\"\
+          )).hexdigest()\n    key = key_hex.encode(\"utf-8\")\n    iv = hashlib.sha1(key_hex.encode(\"\
+          utf-8\")).hexdigest()[:16].encode(\"utf-8\")\n    return key, iv\n\n\ndef\
+          \ _xtime(a):\n    a <<= 1\n    return (a ^ 0x11B) & 0xFF if a & 0x100 else\
+          \ a\n\n\ndef _gmul(a, b):\n    result = 0\n    while b:\n        if b &\
+          \ 1:\n            result ^= a\n        a = _xtime(a)\n        b >>= 1\n\
+          \    return result & 0xFF\n\n\ndef _build_sbox():\n    exp, log = [0] *\
+          \ 256, [0] * 256\n    value = 1\n    for i in range(255):\n        exp[i],\
+          \ log[value] = value, i\n        value = _gmul(value, 3)\n    box = [0]\
+          \ * 256\n    for x in range(256):\n        inv = exp[(255 - log[x]) % 255]\
+          \ if x else 0\n        s = inv\n        for shift in (1, 2, 3, 4):\n   \
+          \         s ^= ((inv << shift) | (inv >> (8 - shift))) & 0xFF\n        box[x]\
+          \ = (s ^ 0x63) & 0xFF\n    return box\n\n\n_SBOX = _build_sbox()\n\n\ndef\
+          \ _expand_key(key):\n    nk = len(key) // 4\n    nr = nk + 6\n    words\
+          \ = [list(key[4 * i:4 * i + 4]) for i in range(nk)]\n    rcon = 1\n    for\
+          \ i in range(nk, 4 * (nr + 1)):\n        temp = list(words[i - 1])\n   \
+          \     if i % nk == 0:\n            temp = [_SBOX[temp[1]], _SBOX[temp[2]],\
+          \ _SBOX[temp[3]], _SBOX[temp[0]]]\n            temp[0] ^= rcon\n       \
+          \     rcon = _xtime(rcon)\n        elif nk > 6 and i % nk == 4:\n      \
+          \      temp = [_SBOX[b] for b in temp]\n        words.append([words[i -\
+          \ nk][j] ^ temp[j] for j in range(4)])\n    return [bytes(b for word in\
+          \ words[4 * r:4 * r + 4] for b in word) for r in range(nr + 1)]\n\n\ndef\
+          \ _encrypt_block(block, round_keys):\n    state = list(block)\n    for i\
+          \ in range(16):\n        state[i] ^= round_keys[0][i]\n    for rnd in range(1,\
+          \ len(round_keys) - 1):\n        state = [_SBOX[b] for b in state]\n   \
+          \     state = [state[4 * ((c + r) % 4) + r] for c in range(4) for r in range(4)]\n\
+          \        for c in range(4):\n            a0, a1, a2, a3 = state[4 * c:4\
+          \ * c + 4]\n            state[4 * c:4 * c + 4] = [\n                _xtime(a0)\
+          \ ^ (_xtime(a1) ^ a1) ^ a2 ^ a3,\n                a0 ^ _xtime(a1) ^ (_xtime(a2)\
+          \ ^ a2) ^ a3,\n                a0 ^ a1 ^ _xtime(a2) ^ (_xtime(a3) ^ a3),\n\
+          \                (_xtime(a0) ^ a0) ^ a1 ^ a2 ^ _xtime(a3),\n           \
+          \ ]\n        for i in range(16):\n            state[i] ^= round_keys[rnd][i]\n\
+          \    state = [_SBOX[b] for b in state]\n    state = [state[4 * ((c + r)\
+          \ % 4) + r] for c in range(4) for r in range(4)]\n    return bytes(x ^ y\
+          \ for x, y in zip(state, round_keys[-1]))\n\n\ndef _pad(data):\n    n =\
+          \ 16 - len(data) % 16\n    return data + bytes([n]) * n\n\n\ndef _cbc_encrypt(data,\
+          \ key, iv):\n    round_keys = _expand_key(key)\n    padded = _pad(data)\n\
+          \    out, prev = bytearray(), iv\n    for i in range(0, len(padded), 16):\n\
+          \        prev = _encrypt_block(bytes(a ^ b for a, b in zip(padded[i:i +\
+          \ 16], prev)), round_keys)\n        out += prev\n    return bytes(out)\n\
+          \n\ndef encrypt_password(password):\n    \"\"\"明文密码 -> 十六进制密文；空密码返回空字符串。\"\
+          \"\"\n    if password is None:\n        return \"\"\n    data = password\
+          \ if isinstance(password, bytes) else str(password).encode(\"utf-8\")\n\
+          \    if not data:\n        return \"\"\n    key, iv = _key_iv()\n    return\
+          \ _cbc_encrypt(data, key, iv).hex()\n\n\n# ============================================================================\n\
+          # 2. 通用小工具\n# ============================================================================\n\
+          def _clean(text):\n    \"\"\"压缩空白，顺便把 &nbsp; 之类实体还原。\"\"\"\n    return re.sub(r\"\
+          \\s+\", \" \", unescape(text or \"\")).strip()\n\n\ndef _strip_label(text):\n\
+          \    \"\"\"去掉 \"活动时间：\" 这类前缀，只留值。\n\n    注意：不能写成 ``^[^:：]*[:：]``，否则纯时间串\
+          \ \"2026-11-01 10:00\" 会被截成\n    \"00\"，进而导致日期解析失败、未来活动过滤失效。\n    \"\"\"\
+          \n    return re.sub(r\"^[^\\d:：]+[:：]\\s*\", \"\", _clean(text))\n\n\ndef\
+          \ _parse_start(text):\n    \"\"\"从 \"2026-11-01 10:00 至 2026-11-15 16:00\"\
+          \ 中取出开始时间；失败返回 None。\"\"\"\n    value = _strip_label(text)\n    value =\
+          \ re.split(r\"至\", value)[0].strip()\n    match = re.match(r\"(\\d{4})-(\\\
+          d{1,2})-(\\d{1,2})\\s+(\\d{1,2}):(\\d{2})\", value)\n    if not match:\n\
+          \        return None\n    try:\n        return datetime(*(int(part) for\
+          \ part in match.groups()))\n    except ValueError:\n        return None\n\
+          \n\ndef _as_int(value, default):\n    try:\n        return int(str(value).strip())\n\
+          \    except (TypeError, ValueError):\n        return default\n\n\ndef _as_float(value,\
+          \ default):\n    try:\n        return float(str(value).strip())\n    except\
+          \ (TypeError, ValueError):\n        return default\n\n\ndef _as_bool(value,\
+          \ default):\n    if isinstance(value, bool):\n        return value\n   \
+          \ if value is None or value == \"\":\n        return default\n    return\
+          \ str(value).strip().lower() in (\"1\", \"true\", \"yes\", \"y\", \"on\"\
+          )\n\n\n# ============================================================================\n\
+          # 3. HTML 解析（标准库实现，等价于原来 lxml 的 XPath）\n# ============================================================================\n\
+          class _DetailParser(HTMLParser):\n    \"\"\"解析活动详情页：标题 + div.xinxi 表格里的\
+          \ \"标签/值\" 行。\"\"\"\n\n    def __init__(self):\n        super().__init__(convert_charrefs=True)\n\
+          \        self.title = \"\"\n        self.rows = []\n        self._title_parts\
+          \ = []\n        self._in_title = False\n        self._xinxi_depth = 0\n\
+          \        self._table_depth = 0\n        self._row = None\n        self._cell\
+          \ = None\n\n    def handle_starttag(self, tag, attrs):\n        attrs =\
+          \ dict(attrs)\n        classes = (attrs.get(\"class\") or \"\").split()\n\
+          \        if tag == \"div\":\n            if self._xinxi_depth:\n       \
+          \         self._xinxi_depth += 1\n            elif \"xinxi\" in classes:\n\
+          \                self._xinxi_depth = 1\n        elif tag == \"p\" and \"\
+          hd-title\" in classes:\n            self._in_title = True\n        elif\
+          \ self._xinxi_depth:\n            if tag == \"table\":\n               \
+          \ self._table_depth += 1\n            elif tag == \"tr\" and self._table_depth\
+          \ == 1:\n                self._row = []\n            elif tag in (\"td\"\
+          , \"th\") and self._table_depth == 1:\n                self._cell = []\n\
+          \n    def handle_endtag(self, tag):\n        if tag == \"div\" and self._xinxi_depth:\n\
+          \            self._xinxi_depth -= 1\n            if not self._xinxi_depth:\n\
+          \                self._table_depth = 0\n        elif tag == \"p\" and self._in_title:\n\
+          \            self._in_title = False\n            self.title = _clean(\"\"\
+          .join(self._title_parts))\n        elif self._xinxi_depth:\n           \
+          \ if tag in (\"td\", \"th\") and self._table_depth == 1 and self._cell is\
+          \ not None:\n                if self._row is not None:\n               \
+          \     self._row.append(_clean(\"\".join(self._cell)))\n                self._cell\
+          \ = None\n            elif tag == \"tr\" and self._table_depth == 1 and\
+          \ self._row is not None:\n                self.rows.append(self._row)\n\
+          \                self._row = None\n            elif tag == \"table\":\n\
+          \                self._table_depth = max(0, self._table_depth - 1)\n\n \
+          \   def handle_data(self, data):\n        if self._in_title:\n         \
+          \   self._title_parts.append(data)\n        if self._cell is not None:\n\
+          \            self._cell.append(data)\n\n\nclass _ListParser(HTMLParser):\n\
+          \    \"\"\"解析列表页：每个 div.huodong 里的详情链接 + 活动时间。\"\"\"\n\n    def __init__(self):\n\
+          \        super().__init__(convert_charrefs=True)\n        self.items = []\n\
+          \        self._item = None\n        self._div_depth = 0\n        self._first_href\
+          \ = None\n        self._tit_href = None\n        self._time_buf = None\n\
+          \n    def handle_starttag(self, tag, attrs):\n        attrs = dict(attrs)\n\
+          \        classes = (attrs.get(\"class\") or \"\").split()\n        if tag\
+          \ == \"div\":\n            if self._item is None:\n                if \"\
+          huodong\" in classes:\n                    self._item = {}\n           \
+          \         self._div_depth = 1\n                    self._first_href = self._tit_href\
+          \ = self._time_buf = None\n            else:\n                self._div_depth\
+          \ += 1\n            return\n        if self._item is None:\n           \
+          \ return\n        if tag == \"a\":\n            href = (attrs.get(\"href\"\
+          ) or \"\").strip()\n            if href:\n                if self._first_href\
+          \ is None:\n                    self._first_href = href\n              \
+          \  if \"tit\" in classes:\n                    self._tit_href = href\n \
+          \       elif tag == \"p\" and \"time\" in classes:\n            self._time_buf\
+          \ = []\n\n    def handle_endtag(self, tag):\n        if self._item is None:\n\
+          \            return\n        if tag == \"p\" and self._time_buf is not None:\n\
+          \            self._item[\"time\"] = _clean(\"\".join(self._time_buf))\n\
+          \            self._time_buf = None\n        elif tag == \"div\":\n     \
+          \       self._div_depth -= 1\n            if self._div_depth <= 0:\n   \
+          \             href = self._tit_href or self._first_href\n              \
+          \  if href:\n                    self.items.append({\"href\": href, \"time\"\
+          : self._item.get(\"time\", \"\")})\n                self._item = None\n\n\
+          \    def handle_data(self, data):\n        if self._time_buf is not None:\n\
+          \            self._time_buf.append(data)\n\n\n# 详情页表格里的标签并不统一（发起组织/组织机构、联系人电话/联系电话、\n\
+          # 拟招募人数/招募人数），这里做别名映射，输出统一用 ACTIVITY_KEYS 里的名字。\n_LABEL_ALIASES = {\n  \
+          \  \"组织机构\": (\"发起组织\", \"组织机构\", \"主办单位\"),\n    \"联系人\": (\"联系人\",),\n\
+          \    \"联系电话\": (\"联系人电话\", \"联系电话\"),\n    \"活动时间\": (\"活动时间\",),\n    \"\
+          活动地点\": (\"活动地点\",),\n    \"志愿时长\": (\"志愿时长\",),\n    \"招募人数\": (\"拟招募人数\"\
+          , \"招募人数\"),\n}\n\n\ndef _parse_detail(html_text):\n    parser = _DetailParser()\n\
+          \    try:\n        parser.feed(html_text or \"\")\n        parser.close()\n\
+          \    except Exception:\n        pass\n    row_map = {}\n    for row in parser.rows:\n\
+          \        if len(row) >= 2 and row[0]:\n            row_map[row[0].rstrip(\"\
+          ：:\").strip()] = row[1]\n    activity = {\"活动名称\": parser.title or \"\"\
+          }\n    for key in ACTIVITY_KEYS[1:]:\n        value = \"\"\n        for\
+          \ alias in _LABEL_ALIASES.get(key, (key,)):\n            if row_map.get(alias):\n\
+          \                value = row_map[alias]\n                break\n       \
+          \ activity[key] = value\n    return activity\n\n\ndef _parse_list(html_text):\n\
+          \    parser = _ListParser()\n    try:\n        parser.feed(html_text or\
+          \ \"\")\n        parser.close()\n    except Exception:\n        pass\n \
+          \   return parser.items\n\n\ndef _max_page(html_text):\n    pages = re.findall(r\"\
+          /Index/huodong/p/(\\d+)\\.aspx\", html_text or \"\", flags=re.I)\n    return\
+          \ max((int(page) for page in pages), default=1)\n\n\n# ============================================================================\n\
+          # 4. 网络层\n# ============================================================================\n\
+          def _build_session():\n    if requests is None:\n        raise RuntimeError(\"\
+          当前环境缺少 requests 库，无法发起网络请求\")\n    session = requests.Session()\n    if\
+          \ HTTPAdapter is not None and Retry is not None:\n        retry = Retry(total=MAX_RETRIES,\
+          \ backoff_factor=0.3,\n                      status_forcelist=(502, 503,\
+          \ 504),\n                      allowed_methods=frozenset((\"GET\",)))  \
+          \ # 登录 POST 绝不重试\n        adapter = HTTPAdapter(max_retries=retry)\n   \
+          \     session.mount(\"https://\", adapter)\n        session.mount(\"http://\"\
+          , adapter)\n    return session\n\n\ndef _timeout_left(deadline):\n    left\
+          \ = deadline - time.monotonic()\n    if left <= 0:\n        raise TimeoutError(\"\
+          已用完时间预算\")\n    return left\n\n\ndef _get(session, url, deadline, allow_redirects=True):\n\
+          \    left = _timeout_left(deadline)\n    response = session.get(url, headers=HEADERS,\
+          \ allow_redirects=allow_redirects,\n                           timeout=(min(5.0,\
+          \ left), min(REQUEST_TIMEOUT, left)))\n    response.encoding = \"utf-8\"\
+          \          # 站点声明 charset=utf-8，显式指定防乱码\n    if response.status_code >=\
+          \ 400:\n        raise RuntimeError(\"HTTP %s: %s\" % (response.status_code,\
+          \ url))\n    return response\n\n\ndef _resolve_login_link(link):\n    \"\
+          \"\"把登录接口返回的 next.link 变成可访问的绝对地址。\"\"\"\n    if not link:\n        return\
+          \ None\n    link = link.strip()\n    if link.startswith(\"http://\") or\
+          \ link.startswith(\"https://\"):\n        url = link\n    else:\n      \
+          \  url = urljoin(IAM_BASE, link)\n    if \"lang=\" not in url:\n       \
+          \ url += (\"&\" if \"?\" in url else \"?\") + \"lang=zh-CN\"\n    return\
+          \ url\n\n\ndef _login(session, username, password, deadline):\n    \"\"\"\
+          登录并建立业务系统会话；失败返回 False（列表/详情页本身是公开的，可继续抓）。\"\"\"\n    _get(session, LOGIN_PAGE_URL,\
+          \ deadline)          # 拿 csrf-token / session / PHPSESSID\n    payload =\
+          \ {\n        \"account\": username,\n        \"password\": encrypt_password(password),\n\
+          \        \"account_type\": \"userid\",\n        \"login_scene\": \"feilian\"\
+          ,\n    }\n    headers = dict(HEADERS)\n    headers[\"Referer\"] = IAM_BASE\
+          \ + \"/login\"\n    csrf = session.cookies.get(\"csrf-token\")\n    if csrf:\n\
+          \        headers[\"csrf-token\"] = csrf\n    login_url = \"%s?os=web&t=%d\"\
+          \ % (LOGIN_API_URL, int(time.time() * 1000))\n    left = _timeout_left(deadline)\n\
+          \    response = session.post(login_url, json=payload, headers=headers,\n\
+          \                            allow_redirects=False,\n                  \
+          \          timeout=(min(5.0, left), min(REQUEST_TIMEOUT, left)))\n    response.encoding\
+          \ = \"utf-8\"\n    if response.status_code >= 400:\n        return False\n\
+          \    try:\n        data = json.loads(response.text)\n    except Exception:\n\
+          \        return False\n    if not isinstance(data, dict):\n        return\
+          \ False\n    link = ((data.get(\"data\") or {}).get(\"next\") or {}).get(\"\
+          link\")\n    target = _resolve_login_link(link)\n    if not target:\n  \
+          \      return False\n    _get(session, target, deadline, allow_redirects=True)\n\
+          \    return True\n\n\n# ============================================================================\n\
+          # 5. 抓取\n# ============================================================================\n\
+          def _wanted(activity, only_future):\n    if not only_future:\n        return\
+          \ True\n    start = _parse_start(activity.get(\"活动时间\", \"\"))\n    return\
+          \ start is None or start > datetime.now()\n\n\ndef _crawl(session, max_pages,\
+          \ only_future, delay, deadline):\n    activities = []\n    seen = set()\n\
+          \n    first = _get(session, LIST_URL_TEMPLATE.format(page=1), deadline)\n\
+          \    first_html = first.text\n    total_pages = min(max_pages, _max_page(first_html))\n\
+          \    total_pages = max(total_pages, 1)\n\n    for page in range(1, total_pages\
+          \ + 1):\n        try:\n            if page == 1:\n                html_text\
+          \ = first_html\n            else:\n                html_text = _get(session,\
+          \ LIST_URL_TEMPLATE.format(page=page), deadline).text\n        except TimeoutError:\n\
+          \            break\n\n        for item in _parse_list(html_text):\n    \
+          \        if time.monotonic() > deadline:\n                return activities\n\
+          \            detail_url = urljoin(BASE_URL, item[\"href\"])\n          \
+          \  if detail_url in seen:\n                continue\n            seen.add(detail_url)\n\
+          \            # 列表卡片上已有时间，先粗筛一遍，省掉过期活动的详情请求\n            if only_future:\n\
+          \                start = _parse_start(item.get(\"time\", \"\"))\n      \
+          \          if start is not None and start <= datetime.now():\n         \
+          \           continue\n            try:\n                detail_html = _get(session,\
+          \ detail_url, deadline).text\n                activity = _parse_detail(detail_html)\n\
+          \            except TimeoutError:\n                return activities\n \
+          \           except Exception:\n                continue                \
+          \      # 单条详情失败不影响整体\n            activity[\"链接\"] = detail_url\n      \
+          \      if _wanted(activity, only_future):\n                activities.append(activity)\n\
+          \            if delay > 0:\n                time.sleep(min(delay, max(0.0,\
+          \ deadline - time.monotonic())))\n\n    activities.sort(key=lambda item:\
+          \ _parse_start(item.get(\"活动时间\", \"\")) or datetime.max)\n    return activities\n\
+          \n\n# ============================================================================\n\
+          # 6. 文本渲染（给 LLM 节点当 context，必须是字符串）\n# ============================================================================\n\
+          def _render_text(activities):\n    if not activities:\n        return \"\
+          本次没有抓取到符合条件的活动。\"\n    lines = [\"共 %d 场活动：\" % len(activities)]\n    for\
+          \ index, activity in enumerate(activities, 1):\n        lines.append(\"\
+          %d. %s\" % (index, activity.get(\"活动名称\", \"\")))\n        for key in ACTIVITY_KEYS[1:]:\n\
+          \            lines.append(\"   %s：%s\" % (key, activity.get(key, \"\")))\n\
+          \        if activity.get(\"链接\"):\n            lines.append(\"   链接：%s\"\
+          \ % activity[\"链接\"])\n    return \"\\n\".join(lines)\n\n\n# ============================================================================\n\
+          # 7. Dify 入口\n# ============================================================================\n\
+          def _resolve_credentials(kwargs):\n    username = kwargs.get(\"username\"\
+          ) or USERNAME\n    password = kwargs.get(\"password\") or PASSWORD\n   \
+          \ return str(username or \"\").strip(), str(password or \"\").strip()\n\n\
+          \ndef main(**kwargs):\n    \"\"\"Dify 代码节点入口：永远返回 {\"text\": \"...\"}（只有一个\
+          \ String 输出）。\n\n    可用输入变量（都可省略）：\n        username / password        \
+          \   账号密码（string）\n        crawl_max_pages               最多翻几页（number，默认\
+          \ 1）\n        crawl_delay                   详情页间隔秒数（number，默认 0）\n     \
+          \   request_timeout               单请求超时（number）\n        deadline_seconds\
+          \              整体时间预算（number）\n        crawl_only_future             是否只看未来（boolean）\n\
+          \    \"\"\"\n    activities = []\n    text = \"\"\n    try:\n        if\
+          \ requests is None:\n            raise RuntimeError(\"当前环境缺少 requests 库，无法发起网络请求\"\
+          )\n        request_timeout = _as_int(kwargs.get(\"request_timeout\"), REQUEST_TIMEOUT)\n\
+          \        globals()[\"REQUEST_TIMEOUT\"] = max(1, request_timeout)\n    \
+          \    deadline = time.monotonic() + max(1, _as_int(kwargs.get(\"deadline_seconds\"\
+          ),\n                                                     DEADLINE_SECONDS))\n\
+          \        max_pages = max(1, _as_int(kwargs.get(\"crawl_max_pages\"), CRAWL_MAX_PAGES))\n\
+          \        delay = max(0.0, _as_float(kwargs.get(\"crawl_delay\"), CRAWL_DELAY))\n\
+          \        only_future = _as_bool(kwargs.get(\"crawl_only_future\"), CRAWL_ONLY_FUTURE)\n\
+          \        username, password = _resolve_credentials(kwargs)\n\n        session\
+          \ = _build_session()\n        if username and password:\n            try:\n\
+          \                _login(session, username, password, deadline)\n       \
+          \     except Exception:\n                pass                       # 登录失败仍可抓公开内容（电话显示\"\
+          登录后可看\"）\n        activities = _crawl(session, max_pages, only_future, delay,\
+          \ deadline)\n        text = _render_text(activities)\n    except Exception\
+          \ as exc:\n        if RAISE_ERRORS:\n            raise\n        text = \"\
+          抓取失败：%s: %s\" % (type(exc).__name__, exc)\n    # 只返回节点里声明过的键，多一个少一个都会让 Dify\
+          \ 报\n    # \"Not all output parameters are validated.\"\n    return {\"\
+          text\": text}\n\n\n# ============================================================================\n\
+          # 部署到 Dify「代码执行」节点：\n#   1) 整份文件粘贴进节点（Python 3，已预装 requests 即可，无需其他依赖）；\n\
+          #   2) 输出变量只声明一个：text（String）；\n#      多声明/少声明都会触发 \"Not all output parameters\
+          \ are validated\"；\n#   3) 输入变量（均可选）：username、password、crawl_max_pages、crawl_delay、\n\
+          #      request_timeout、deadline_seconds、crawl_only_future；\n#   4) 节点超时要\
+          \ ≥ 30s：本内核默认在 20s 预算内返回，超预算会带着已抓到的数据退出。\n#\n# 本地自测（不写文件）：\n#   python -c\
+          \ \"import cas_core,json;print(json.dumps(cas_core.main(),ensure_ascii=False))\"\
+          \n# ============================================================================\n"
+        code_language: python3
+        outputs:
+          text:
+            children: null
+            type: string
+        selected: false
+        title: 爬取志愿系统
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - CAS_USERNAME
+          value_type: secret
+          variable: username
+        - value_selector:
+          - env
+          - CAS_PASSWORD
+          value_type: secret
+          variable: password
+      height: 50
+      id: '1792291426381'
+      position:
+        x: 362
+        y: 130
+      positionAbsolute:
+        x: 362
+        y: 130
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "# -*- coding: utf-8 -*-\n\"\"\"merge_activities_text.py —— Dify「代码执行」节点：把两个抓取节点输出的\
+          \ text 合并成一段文本。\n\n用途\n----\n上游两个代码节点（zyfw 志愿系统 cas_core.py / 辅学平台 CAS 内核）各自输出一份形如\n\
+          \n    共 N 场活动：\n    1. 活动名称\n       活动时间：...\n       活动地点：...\n\n的 text。本节点把两份\
+          \ text 合并成**一段**同样格式的 text：\n\n    共 (N1 + N2) 场活动：\n    1. 活动名称\n     \
+          \  ...\n    ...\n\n活动条目按「先第一个节点、后第二个节点」的顺序拼接，序号由本节点统一重排。\n\nDify 硬约束（改代码时别破坏）\n\
+          -----------------------------\n1. 入口必须是 ``def main(**kwargs) -> dict``；\n\
+          2. 返回 dict 的键必须和节点里声明的「输出变量」**完全一致** —— 本节点只返回\n   ``{\"text\": ...}``，所以节点里只声明一个输出变量\
+          \ text（String）。多返回一个键会报\n   ``Not all output parameters are validated.``；\n\
+          3. 模块顶层不能有 print / 自执行 / 文件读写（Dify 会把整段代码内联进自己的 runner，\n   任何自执行块都可能导致\
+          \ ``Output result is missing.``）；\n4. 只依赖标准库。\n\n节点输入变量（在 Dify 里声明，再把上游节点的输出映射进来）\n\
+          ----------------------------------------------------------\n必填（二选一，推荐同时映射\
+          \ text）：\n    text1  String   第一个抓取节点（zyfw）输出的 text\n    text2  String \
+          \  第二个抓取节点（辅学平台）输出的 text\n可选（结构化输入优先于 text 解析，避免二次解析）：\n    activities1\
+          \  Array[Object]   第一个抓取节点的 activities\n    activities2  Array[Object] \
+          \  第二个抓取节点的 activities\n\n另外兼容 text_a/text_b、activities_a/activities_b 等别名；上游没开\
+          \ include_text 时\n只传 activities1 / activities2 也可以。\n\n节点输出变量（只声明这一个）：\n\
+          \    text  String\n\"\"\"\n\nimport json\nimport re\n\n# ============================================================================\n\
+          # 配置区\n# ============================================================================\n\
+          # 合并后每场活动的字段顺序：先两个平台共有的字段，再各自的特色字段。\n# 该顺序同时适用于「text 解析」和「activities 结构化渲染」两条路径。\n\
+          FIELD_ORDER = (\n    \"活动名称\",\n    \"组织机构\", \"联系人\", \"联系电话\",\n    \"\
+          活动时间\", \"活动地点\",\n    \"志愿时长\", \"招募人数\",\n    \"活动类型\", \"活动学时\",\n  \
+          \  \"链接\",\n)\n\n# 字段别名：两个内核里同一含义的不同叫法都兜住（如 发起组织/组织机构、\n# 联系人电话/联系电话、拟招募人数/招募人数、学时/学分）。\n\
+          FIELD_ALIASES = {\n    \"活动名称\": (\"活动名称\", \"标题\", \"name\", \"title\"\
+          ),\n    \"组织机构\": (\"组织机构\", \"发起组织\", \"主办单位\"),\n    \"联系人\": (\"联系人\"\
+          ,),\n    \"联系电话\": (\"联系电话\", \"联系人电话\"),\n    \"活动时间\": (\"活动时间\", \"举办时间\"\
+          , \"活动日期\"),\n    \"活动地点\": (\"活动地点\", \"举办地点\", \"活动场地\"),\n    \"志愿时长\"\
+          : (\"志愿时长\",),\n    \"招募人数\": (\"招募人数\", \"拟招募人数\"),\n    \"活动类型\": (\"\
+          活动类型\", \"活动类别\"),\n    \"活动学时\": (\"活动学时\", \"实践学时\", \"学时\", \"学分\"),\n\
+          \    \"链接\": (\"链接\", \"详情页链接\", \"url\", \"href\"),\n}\n\n# kwargs 里不同命名的别名表（Dify\
+          \ 里变量名随用户习惯而定，多兜几个）\n_TEXT1_KEYS = (\"text1\", \"text_a\", \"a_text\", \"\
+          text_1\")\n_TEXT2_KEYS = (\"text2\", \"text_b\", \"b_text\", \"text_2\"\
+          )\n_ACT1_KEYS = (\"activities1\", \"activities_a\", \"a_activities\", \"\
+          activities_1\")\n_ACT2_KEYS = (\"activities2\", \"activities_b\", \"b_activities\"\
+          , \"activities_2\")\n\n# 行级解析规则\n_HEADER_RE = re.compile(r\"^共\\s*\\d+\\\
+          s*场活动\\s*[:：]?\\s*$\")        # \"共 5 场活动：\"\n_ENTRY_RE = re.compile(r\"\
+          ^(\\d+)\\s*[.、．)）]\\s*(.*)$\")              # \"1. 活动名称\"\n_NOTE_RE = re.compile(r\"\
+          (抓取失败|没有抓取到|未抓取到|没有符合|暂无|没有活动|本次没有)\")\n_EMPTY_VALUE_RE = re.compile(r\"\
+          ^[^:：]{1,30}[:：]\\s*$\")             # \"组织机构：\" 这种空值行\n\nUNNAMED_ACTIVITY\
+          \ = \"（未命名活动）\"\nEMPTY_TEXT = \"共 0 场活动：\"\n\n\n# ============================================================================\n\
+          # 小工具\n# ============================================================================\n\
+          def _as_text(value):\n    \"\"\"任意值 -> str（None 变成空串，绝不抛异常）。\"\"\"\n   \
+          \ if value is None:\n        return \"\"\n    if isinstance(value, str):\n\
+          \        return value\n    try:\n        return str(value)\n    except Exception:\n\
+          \        return \"\"\n\n\ndef _collapse(value):\n    \"\"\"压缩空白，顺便去掉首尾空白。\"\
+          \"\"\n    return re.sub(r\"\\s+\", \" \", _as_text(value)).strip()\n\n\n\
+          def _pick(kwargs, names):\n    \"\"\"按别名顺序从 kwargs 里取第一个非空的参数；都没有返回 None。\"\
+          \"\"\n    for name in names:\n        if name in kwargs:\n            value\
+          \ = kwargs[name]\n            if value is not None and value != \"\":\n\
+          \                return value\n    return None\n\n\n# ============================================================================\n\
+          # 路径一：从上游返回的 activities 数组渲染（首选，结构稳定）\n# ============================================================================\n\
+          def _blocks_from_activities(items):\n    \"\"\"list[dict] -> [(标题, [字段行,\
+          \ ...]), ...]。\"\"\"\n    blocks = []\n    if not isinstance(items, list):\n\
+          \        return blocks\n    for item in items:\n        if not isinstance(item,\
+          \ dict):\n            continue\n        title = \"\"\n        details =\
+          \ []\n        for key in FIELD_ORDER:\n            value = \"\"\n      \
+          \      for alias in FIELD_ALIASES.get(key, (key,)):\n                candidate\
+          \ = _collapse(item.get(alias))\n                if candidate:\n        \
+          \            value = candidate\n                    break\n            if\
+          \ key == \"活动名称\":\n                title = value\n            elif value:\n\
+          \                details.append(\"%s：%s\" % (key, value))\n        if not\
+          \ title and not details:\n            continue\n        blocks.append((title\
+          \ or UNNAMED_ACTIVITY, details))\n    return blocks\n\n\n# ============================================================================\n\
+          # 路径二：从上游返回的 text 解析（上游没把 activities 传进来时用）\n# ============================================================================\n\
+          def _blocks_from_text(raw):\n    \"\"\"把 \"共 N 场活动：1. 名称\\\\n   字段：值 ...\"\
+          \ 解析成 [(标题, [字段行...]), ...]。\"\"\"\n    blocks = []\n    current = None\n\
+          \    for line in _as_text(raw).splitlines():\n        if not line.strip():\n\
+          \            continue\n        # 1) 汇总行：跳过（总数由本节点重新统计）\n        if _HEADER_RE.match(line.strip()):\n\
+          \            continue\n        # 2) 缩进行：属于当前活动的 \"字段：值\"\n        if line[0].isspace():\n\
+          \            if current is not None:\n                detail = _collapse(line)\n\
+          \                if detail and not _EMPTY_VALUE_RE.match(detail):\n    \
+          \                current[1].append(detail)\n            continue\n     \
+          \   # 3) 顶格编号行：一场新活动\n        entry = _ENTRY_RE.match(line.strip())\n  \
+          \      if entry is not None:\n            current = [_collapse(entry.group(2)),\
+          \ []]\n            blocks.append(current)\n            continue\n      \
+          \  text = _collapse(line)\n        if not text:\n            continue\n\
+          \        # 4) 抓取失败 / 无结果之类的提示行：不是活动，跳过\n        if _NOTE_RE.search(text):\n\
+          \            current = None\n            continue\n        # 5) 顶格但没有编号的标题行：也当成一场活动，避免漏数据\n\
+          \        current = [text, []]\n        blocks.append(current)\n    return\
+          \ blocks\n\n\ndef _source_blocks(kwargs, activity_keys, text_keys):\n  \
+          \  \"\"\"单个上游节点的数据 -> blocks。非空 activities 数组优先，其次 text。\"\"\"\n    activities\
+          \ = _pick(kwargs, activity_keys)\n    if isinstance(activities, list) and\
+          \ activities:\n        return _blocks_from_activities(activities)\n    if\
+          \ isinstance(activities, str) and activities:\n        # Dify 有时会把 Array\
+          \ 变量序列化成 JSON 字符串传进来\n        try:\n            parsed = json.loads(activities)\n\
+          \        except Exception:\n            parsed = None\n        if isinstance(parsed,\
+          \ list) and parsed:\n            return _blocks_from_activities(parsed)\n\
+          \    raw = _pick(kwargs, text_keys)\n    if not isinstance(raw, str):  \
+          \      # 没传 text / 类型不对：视为该来源为空\n        return []\n    return _blocks_from_text(raw)\n\
+          \n\n# ============================================================================\n\
+          # 合并渲染\n# ============================================================================\n\
+          def _render(blocks):\n    \"\"\"[(标题, [字段行...]), ...] -> \"共 N 场活动：...\"\
+          \ 文本。\"\"\"\n    cleaned = []\n    for title, details in blocks or ():\n\
+          \        title = _collapse(title) or UNNAMED_ACTIVITY\n        lines = []\n\
+          \        for detail in details or ():\n            detail = _collapse(detail)\n\
+          \            if detail and not _EMPTY_VALUE_RE.match(detail):\n        \
+          \        lines.append(detail)\n        cleaned.append((title, lines))\n\n\
+          \    if not cleaned:\n        return EMPTY_TEXT\n\n    output = [\"共 %d\
+          \ 场活动：\" % len(cleaned)]\n    for index, (title, details) in enumerate(cleaned,\
+          \ 1):\n        output.append(\"%d. %s\" % (index, title))\n        for detail\
+          \ in details:\n            output.append(\"   %s\" % detail)\n    return\
+          \ \"\\n\".join(output)\n\n\ndef merge(text1=\"\", text2=\"\", activities1=None,\
+          \ activities2=None):\n    \"\"\"纯函数：合并两份活动数据，返回合并后的文本（供本地测试/复用）。\"\"\"\n\
+          \    kwargs = {\"text1\": text1, \"text2\": text2,\n              \"activities1\"\
+          : activities1, \"activities2\": activities2}\n    blocks = []\n    blocks.extend(_source_blocks(kwargs,\
+          \ _ACT1_KEYS, _TEXT1_KEYS))\n    blocks.extend(_source_blocks(kwargs, _ACT2_KEYS,\
+          \ _TEXT2_KEYS))\n    return _render(blocks)\n\n\n# ============================================================================\n\
+          # Dify 入口\n# ============================================================================\n\
+          def main(**kwargs):\n    \"\"\"Dify 代码节点入口：永远返回 {\"text\": \"...\"}，不抛异常。\n\
+          \n    可用输入变量：text1 / text2（String）、activities1 / activities2（Array[Object]）。\n\
+          \    \"\"\"\n    try:\n        kwargs = kwargs or {}\n        blocks = []\n\
+          \        blocks.extend(_source_blocks(kwargs, _ACT1_KEYS, _TEXT1_KEYS))\n\
+          \        blocks.extend(_source_blocks(kwargs, _ACT2_KEYS, _TEXT2_KEYS))\n\
+          \        text = _render(blocks)\n    except Exception:\n        text = EMPTY_TEXT\n\
+          \    # 只返回节点里声明过的键，多一个少一个都会让 Dify 报\n    # \"Not all output parameters are\
+          \ validated.\"\n    return {\"text\": text}\n\n\n# ============================================================================\n\
+          # 部署到 Dify「代码执行」节点：\n#   1) 整份文件粘进节点（Python 3，纯标准库，无需 requests）；\n#   2)\
+          \ 输出变量只声明一个：text（String）；\n#   3) 输入变量（都可选）：text1、text2、activities1、activities2；\n\
+          #      最省事的接法：text1 = 上游节点1的 text，text2 = 上游节点2的 text；\n#   4) 上游节点必须打开\
+          \ include_text（两个内核默认都是 True），否则改为映射\n#      activities1 / activities2。\n\
+          # ============================================================================\n"
+        code_language: python3
+        outputs:
+          text:
+            children: null
+            type: string
+        selected: false
+        title: 合并活动
+        type: code
+        variables:
+        - value_selector:
+          - '1792291426381'
+          - text
+          value_type: string
+          variable: text1
+        - value_selector:
+          - '1792026183452'
+          - text
+          value_type: string
+          variable: text2
+      height: 50
+      id: '1792311372098'
+      position:
+        x: 723
+        y: 97.4047619047619
+      positionAbsolute:
+        x: 723
+        y: 97.4047619047619
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: '%Y-%m-%d %H:%M:%S'
+          form: form
+          human_description:
+            en_US: Time format in strftime standard.
+            ja_JP: Time format in strftime standard.
+            pt_BR: Time format in strftime standard.
+            zh_Hans: strftime 标准的时间格式。
+          label:
+            en_US: Format
+            ja_JP: Format
+            pt_BR: Format
+            zh_Hans: 格式
+          llm_description: null
+          max: null
+          min: null
+          name: format
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: UTC
+          form: form
+          human_description:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          label:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          llm_description: null
+          max: null
+          min: null
+          name: timezone
+          options:
+          - icon: null
+            label:
+              en_US: UTC
+              ja_JP: UTC
+              pt_BR: UTC
+              zh_Hans: UTC
+            value: UTC
+          - icon: null
+            label:
+              en_US: America/New_York
+              ja_JP: America/New_York
+              pt_BR: America/New_York
+              zh_Hans: 美洲/纽约
+            value: America/New_York
+          - icon: null
+            label:
+              en_US: America/Los_Angeles
+              ja_JP: America/Los_Angeles
+              pt_BR: America/Los_Angeles
+              zh_Hans: 美洲/洛杉矶
+            value: America/Los_Angeles
+          - icon: null
+            label:
+              en_US: America/Chicago
+              ja_JP: America/Chicago
+              pt_BR: America/Chicago
+              zh_Hans: 美洲/芝加哥
+            value: America/Chicago
+          - icon: null
+            label:
+              en_US: America/Sao_Paulo
+              ja_JP: America/Sao_Paulo
+              pt_BR: América/São Paulo
+              zh_Hans: 美洲/圣保罗
+            value: America/Sao_Paulo
+          - icon: null
+            label:
+              en_US: Asia/Shanghai
+              ja_JP: Asia/Shanghai
+              pt_BR: Asia/Shanghai
+              zh_Hans: 亚洲/上海
+            value: Asia/Shanghai
+          - icon: null
+            label:
+              en_US: Asia/Ho_Chi_Minh
+              ja_JP: Asia/Ho_Chi_Minh
+              pt_BR: Ásia/Ho Chi Minh
+              zh_Hans: 亚洲/胡志明市
+            value: Asia/Ho_Chi_Minh
+          - icon: null
+            label:
+              en_US: Asia/Tokyo
+              ja_JP: Asia/Tokyo
+              pt_BR: Asia/Tokyo
+              zh_Hans: 亚洲/东京
+            value: Asia/Tokyo
+          - icon: null
+            label:
+              en_US: Asia/Dubai
+              ja_JP: Asia/Dubai
+              pt_BR: Asia/Dubai
+              zh_Hans: 亚洲/迪拜
+            value: Asia/Dubai
+          - icon: null
+            label:
+              en_US: Asia/Kolkata
+              ja_JP: Asia/Kolkata
+              pt_BR: Asia/Kolkata
+              zh_Hans: 亚洲/加尔各答
+            value: Asia/Kolkata
+          - icon: null
+            label:
+              en_US: Asia/Seoul
+              ja_JP: Asia/Seoul
+              pt_BR: Asia/Seoul
+              zh_Hans: 亚洲/首尔
+            value: Asia/Seoul
+          - icon: null
+            label:
+              en_US: Asia/Singapore
+              ja_JP: Asia/Singapore
+              pt_BR: Asia/Singapore
+              zh_Hans: 亚洲/新加坡
+            value: Asia/Singapore
+          - icon: null
+            label:
+              en_US: Europe/London
+              ja_JP: Europe/London
+              pt_BR: Europe/London
+              zh_Hans: 欧洲/伦敦
+            value: Europe/London
+          - icon: null
+            label:
+              en_US: Europe/Berlin
+              ja_JP: Europe/Berlin
+              pt_BR: Europe/Berlin
+              zh_Hans: 欧洲/柏林
+            value: Europe/Berlin
+          - icon: null
+            label:
+              en_US: Europe/Moscow
+              ja_JP: Europe/Moscow
+              pt_BR: Europe/Moscow
+              zh_Hans: 欧洲/莫斯科
+            value: Europe/Moscow
+          - icon: null
+            label:
+              en_US: Australia/Sydney
+              ja_JP: Australia/Sydney
+              pt_BR: Australia/Sydney
+              zh_Hans: 澳大利亚/悉尼
+            value: Australia/Sydney
+          - icon: null
+            label:
+              en_US: Pacific/Auckland
+              ja_JP: Pacific/Auckland
+              pt_BR: Pacific/Auckland
+              zh_Hans: 太平洋/奥克兰
+            value: Pacific/Auckland
+          - icon: null
+            label:
+              en_US: Africa/Cairo
+              ja_JP: Africa/Cairo
+              pt_BR: Africa/Cairo
+              zh_Hans: 非洲/开罗
+            value: Africa/Cairo
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          format: ''
+          timezone: ''
+        plugin_id: null
+        plugin_unique_identifier: ''
+        provider_icon: /console/api/workspaces/current/tool-provider/builtin/time/icon
+        provider_id: time
+        provider_name: time
+        provider_show_name: 时间
+        provider_type: builtin
+        selected: false
+        title: 获取当前时间
+        tool_configurations:
+          format:
+            type: mixed
+            value: '%Y-%m-%d'
+          timezone:
+            type: constant
+            value: Asia/Shanghai
+        tool_description: 一个用于获取当前时间的工具。
+        tool_label: 获取当前时间
+        tool_name: current_time
+        tool_node_version: '2'
+        tool_parameters: {}
+        type: tool
+      height: 112
+      id: '1792804399381'
+      position:
+        x: 362
+        y: 260
+      positionAbsolute:
+        x: 362
+        y: 260
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The SQL statement to delete a table or rows. It must start with
+              DELETE or DROP. Example, DELETE FROM users where name is Alice or DROP
+              TABLE users
+            ja_JP: テーブルまたは行を削除するための SQL 文。DELETE または DROP で始まる必要があります。例,DELETE FROM
+              users where name is Alice または DROP TABLE users
+            pt_BR: A instrução SQL para excluir uma tabela ou linhas. Deve começar
+              com DELETE ou DROP. Exemplo,DELETE FROM users onde name é Alice ou DROP
+              TABLE users
+            zh_Hans: 用于删除表或行的 SQL 语句。必须以 DELETE 或 DROP 开头。例如,DELETE FROM users where
+              name is Alice 或 DROP TABLE users
+          label:
+            en_US: DELETE or DROP SQL Statement
+            ja_JP: DELETE または DROP SQL 文
+            pt_BR: Instrução SQL DELETE ou DROP
+            zh_Hans: DELETE 或 DROP SQL 语句
+          llm_description: The SQL DELETE or DROP statement to execute. It must start
+            with DELETE or DROP. Example,DELETE FROM users where name is Alice or
+            DROP TABLE users
+          max: null
+          min: null
+          name: delete_sql
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          delete_sql: ''
+        plugin_id: langgenius/sqlite
+        plugin_unique_identifier: langgenius/sqlite:0.0.7@740c8b932eb0b067bf84079eef3eca0bd67eb3989f76ba026c8f8ef490d056d8
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=d409ca03-339a-4546-8c44-1eec906dd9ff&filename=41d42dd6aa697ee17cfeb17caed858ff048242bff4801b2719e50d0d0fbfc4da.svg
+        provider_id: langgenius/sqlite/sqlite
+        provider_name: langgenius/sqlite/sqlite
+        provider_show_name: SQLite
+        provider_type: builtin
+        selected: false
+        title: 去除历史活动
+        tool_configurations: {}
+        tool_description: 使用提供的 SQL DELETE 或 DROP 语句从 SQLite 数据库中删除表或行
+        tool_label: 删除表或行
+        tool_name: delete_sql
+        tool_node_version: '2'
+        tool_parameters:
+          delete_sql:
+            type: mixed
+            value: 'DELETE FROM activities
+
+              WHERE substr(活动时间, 1, 10) < substr(''{{#1792804399381.text#}}'', 1,
+              10);'
+        type: tool
+      height: 50
+      id: '1792805492446'
+      position:
+        x: 703
+        y: 309.66666666666663
+      positionAbsolute:
+        x: 703
+        y: 309.66666666666663
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The SQL statement to select rows. It must start with SELECT. Example,
+              SELECT id, name from users where name is Alice
+            ja_JP: 行を選択するための SQL 文。SELECT で始まる必要があります。例,SELECT id, name from users
+              where name is Alice
+            pt_BR: A instrução SQL para selecionar linhas. Deve começar com SELECT.
+              Exemplo,SELECT id, name from users onde name é Alice
+            zh_Hans: 用于查询行的 SQL 语句。必须以 SELECT 开头。例如,SELECT id, name from users where
+              name is Alice
+          label:
+            en_US: SELECT SQL Statement
+            ja_JP: SELECT SQL 文
+            pt_BR: Instrução SQL SELECT
+            zh_Hans: SELECT SQL 语句
+          llm_description: The SQL SELECT statement to execute. It must start with
+            SELECT. Example,SELECT id, name from users where name is Alice
+          max: null
+          min: null
+          name: select_sql
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          select_sql: ''
+        plugin_id: langgenius/sqlite
+        plugin_unique_identifier: langgenius/sqlite:0.0.7@740c8b932eb0b067bf84079eef3eca0bd67eb3989f76ba026c8f8ef490d056d8
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=d409ca03-339a-4546-8c44-1eec906dd9ff&filename=41d42dd6aa697ee17cfeb17caed858ff048242bff4801b2719e50d0d0fbfc4da.svg
+        provider_id: langgenius/sqlite/sqlite
+        provider_name: langgenius/sqlite/sqlite
+        provider_show_name: SQLite
+        provider_type: builtin
+        selected: false
+        title: 查询全部数据
+        tool_configurations: {}
+        tool_description: 使用提供的 SQL SELECT 语句从 SQLite 数据库中的表查询行
+        tool_label: 查询行
+        tool_name: select_sql
+        tool_node_version: '2'
+        tool_parameters:
+          select_sql:
+            type: mixed
+            value: SELECT * FROM activities ORDER BY 活动时间 ASC;
+        type: tool
+      height: 50
+      id: '1792809298130'
+      position:
+        x: 1044
+        y: 318
+      positionAbsolute:
+        x: 1044
+        y: 318
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "# -*- coding: utf-8 -*-\n\"\"\"filter_activities_by_db.py —— Dify「代码执行」节点：按数据库已有活动名称过滤爬虫结果。\n\
+          \n用途\n----\n上游两个节点：\n  text1  爬虫节点输出的 text，形如\n         \"共 N 场活动：\\n1.\
+          \ 活动名称\\n   组织机构：...\\n   活动时间：...\"\n  text2  SQLite 插件「查询行（Select Rows）」节点的输出，两种都认：\n\
+          \         - text 变量：\"Table: activities\\nColumns: ...\\nRows: 26\\nData:\
+          \ [{'活动名称': ...}, ...]\"\n           （注意 Data 里是 Python repr，单引号 / None，不是\
+          \ JSON）\n         - json 变量：{\"query\": ..., \"table\": ..., \"columns\"\
+          : [...], \"data\": [...], \"row_count\": 26, \"status\": \"success\"}\n\n\
+          处理逻辑\n--------\n按「活动名称」比对（忽略所有空白字符、全角空格、大小写差异）：\n数据库里已经存在的整条丢弃，剩下的按**原来的文本格式**重新从\
+          \ 1 编号输出，\n仍然是一段字符串。抓虫结果为空 / 数据库为空 / text2 解析失败时都不会丢数据。\n\nDify 硬约束（改代码时别破坏）\n\
+          ----------------------------\n1. 入口必须是 def main(**kwargs) -> dict；\n2. 只返回\
+          \ {\"text\": ...} 这一个键 → 节点「输出变量」只声明 text（String）。\n   多返回一个键会报 \"Not all\
+          \ output parameters are validated.\"；\n3. 模块顶层不能有 print / 自执行 / 文件读写，否则可能\
+          \ \"Output result is missing.\"；\n4. 只依赖标准库（json / re / ast）。\n\n节点输入变量（在\
+          \ Dify 里声明，再把上游输出映射进来）\n----------------------------------------------------\n\
+          \    text1  String   爬虫节点输出的 text\n    text2  String   「查询行」节点的 text（或 json）\n\
+          \n节点输出变量（只声明这一个）：\n    text   String\n\"\"\"\n\nimport ast\nimport json\n\
+          import re\n\n# ---------------------------------------------------------------------------\n\
+          # 输入变量别名（Dify 里变量名随习惯而定，多兜几个，取第一个非空的）\n# ---------------------------------------------------------------------------\n\
+          _TEXT1_KEYS = (\"text1\", \"crawler_text\", \"spider_text\", \"new_text\"\
+          ,\n               \"text_a\", \"a_text\", \"text_1\", \"爬虫text\", \"抓取结果\"\
+          )\n_TEXT2_KEYS = (\"text2\", \"db_text\", \"database_text\", \"existing_text\"\
+          , \"db_result\",\n               \"text_b\", \"b_text\", \"text_2\", \"\
+          数据库text\", \"已有数据\")\n\n_HEADER_RE = re.compile(r\"^共\\s*\\d+\\s*场活动\\s*[:：]?\\\
+          s*$\")   # \"共 49 场活动：\"\n_ENTRY_RE = re.compile(r\"^(\\d+)\\s*[.、．)）]\\\
+          s*(.*)$\")         # \"1. 活动名称\"\n_NOTE_RE = re.compile(r\"(抓取失败|没有抓取到|未抓取到|没有符合|暂无|没有活动|本次没有)\"\
+          )\n_DATA_RE = re.compile(r\"\\bData\\s*[:：]\\s*\", re.S)              #\
+          \ \"Data: [...]\"\n\nUNNAMED_ACTIVITY = \"（未命名活动）\"\nEMPTY_TEXT = \"共 0\
+          \ 场活动：\"\n\n# 比对时忽略的不可见 / 空白字符\n_BLANK_CHARS = (\"\\ufeff\", \"\\u200b\"\
+          , \"\\u200c\", \"\\u200d\", \"\\u3000\", \"\\xa0\")\n\n\n# ---------------------------------------------------------------------------\n\
+          # 小工具\n# ---------------------------------------------------------------------------\n\
+          def _as_text(value):\n    \"\"\"任意值 -> str（None 变空串，绝不抛异常）。\"\"\"\n    if\
+          \ value is None:\n        return \"\"\n    if isinstance(value, str):\n\
+          \        return value\n    try:\n        return str(value)\n    except Exception:\n\
+          \        return \"\"\n\n\ndef _collapse(value):\n    \"\"\"多行/连续空白压成一个空格并去首尾空白。\"\
+          \"\"\n    return re.sub(r\"\\s+\", \" \", _as_text(value)).strip()\n\n\n\
+          def _name_key(value):\n    \"\"\"活动名称归一化：去掉所有空白（含全角空格、BOM/零宽），统一大小写。\"\"\
+          \"\n    text = _as_text(value)\n    for ch in _BLANK_CHARS:\n        text\
+          \ = text.replace(ch, \" \")\n    return re.sub(r\"\\s+\", \"\", text).strip().casefold()\n\
+          \n\ndef _pick(kwargs, names):\n    \"\"\"按别名顺序取第一个非空参数；都没有返回空串。\"\"\"\n\
+          \    for name in names:\n        if name in kwargs:\n            value =\
+          \ kwargs[name]\n            if value is not None and value != \"\":\n  \
+          \              return value\n    return \"\"\n\n\n# ---------------------------------------------------------------------------\n\
+          # 1. 解析爬虫文本 -> [(标题, [字段行, ...]), ...]\n# ---------------------------------------------------------------------------\n\
+          def _parse_crawler_text(raw):\n    blocks = []\n    current = None\n   \
+          \ for line in _as_text(raw).splitlines():\n        if not line.strip():\n\
+          \            continue\n        stripped = line.strip()\n        # 汇总行：\"\
+          共 N 场活动：\" 跳过（总数由本节点重新统计）\n        if _HEADER_RE.match(stripped):\n    \
+          \        continue\n        # 缩进行：当前活动的 \"字段：值\"\n        if line[0].isspace():\n\
+          \            if current is not None and stripped:\n                current[1].append(stripped)\n\
+          \            continue\n        # 顶格编号行：一场新活动\n        entry = _ENTRY_RE.match(stripped)\n\
+          \        if entry is not None:\n            current = [entry.group(2).strip(),\
+          \ []]\n            blocks.append(current)\n            continue\n      \
+          \  # \"抓取失败：…\" / \"本次没有抓取到…\" 之类的提示行：不是活动，跳过\n        if _NOTE_RE.search(stripped):\n\
+          \            current = None\n            continue\n        # 顶格但没编号：也当成一场活动，避免漏数据\n\
+          \        current = [stripped, []]\n        blocks.append(current)\n    return\
+          \ blocks\n\n\n# ---------------------------------------------------------------------------\n\
+          # 2. 渲染回原来的文本格式\n# ---------------------------------------------------------------------------\n\
+          def _render(blocks):\n    cleaned = []\n    for title, details in blocks:\n\
+          \        title = _collapse(title) or UNNAMED_ACTIVITY\n        lines = [d\
+          \ for d in (_collapse(line) for line in details) if d]\n        cleaned.append((title,\
+          \ lines))\n    if not cleaned:\n        return EMPTY_TEXT\n    output =\
+          \ [\"共 %d 场活动：\" % len(cleaned)]\n    for index, (title, lines) in enumerate(cleaned,\
+          \ 1):\n        output.append(\"%d. %s\" % (index, title))\n        for line\
+          \ in lines:\n            output.append(\"   %s\" % line)\n    return \"\\\
+          n\".join(output)\n\n\n# ---------------------------------------------------------------------------\n\
+          # 3. 解析数据库文本 -> list[dict]\n# ---------------------------------------------------------------------------\n\
+          def _rows_from_obj(obj):\n    \"\"\"把 json / literal_eval 的结果统一成「列表」；认不出来返回\
+          \ None。\"\"\"\n    if isinstance(obj, dict):\n        for key in (\"data\"\
+          , \"rows\", \"records\", \"data_list\"):\n            value = obj.get(key)\n\
+          \            if isinstance(value, list):\n                return value\n\
+          \        if any(key in obj for key in (\"活动名称\", \"名称\", \"name\", \"title\"\
+          )):\n            return [obj]\n        return None\n    if isinstance(obj,\
+          \ list):\n        return obj\n    return None\n\n\ndef _parse_db_rows(db_text):\n\
+          \    text = _as_text(db_text).strip()\n    if not text:\n        return\
+          \ None\n    # a) 插件 json 变量 / 直接是 JSON 数组\n    try:\n        parsed = json.loads(text)\n\
+          \    except Exception:\n        parsed = None\n    rows = _rows_from_obj(parsed)\
+          \ if parsed is not None else None\n    if rows is not None:\n        return\
+          \ rows\n    # b) 插件 text 变量：\"... Data: [{'活动名称': ...}]\"（Python repr）\n\
+          \    match = _DATA_RE.search(text)\n    if match is not None:\n        payload\
+          \ = text[match.end():].strip()\n        try:\n            parsed = ast.literal_eval(payload)\n\
+          \        except Exception:\n            parsed = None\n        rows = _rows_from_obj(parsed)\n\
+          \        if rows is not None:\n            return rows\n    # c) 整段就是 Python\
+          \ repr 的列表\n    try:\n        parsed = ast.literal_eval(text)\n    except\
+          \ Exception:\n        parsed = None\n    return _rows_from_obj(parsed)\n\
+          \n\ndef _db_name_keys(db_text):\n    \"\"\"数据库里已有的活动名称集合；无法解析时返回 None（表示「不知道」，不过滤）。\"\
+          \"\"\n    rows = _parse_db_rows(db_text)\n    if rows is None:\n       \
+          \ return None\n    keys = set()\n    for row in rows:\n        if not isinstance(row,\
+          \ dict):\n            continue\n        for column in (\"活动名称\", \"名称\"\
+          , \"name\", \"title\"):\n            if column in row:\n               \
+          \ key = _name_key(row.get(column))\n                if key:\n          \
+          \          keys.add(key)\n                break\n    return keys\n\n\n#\
+          \ ---------------------------------------------------------------------------\n\
+          # 4. 纯函数：过滤 + 渲染\n# ---------------------------------------------------------------------------\n\
+          def filter_activities(crawler_text=\"\", db_text=\"\"):\n    \"\"\"爬虫文本里去掉数据库已有活动，返回同样格式的字符串。\"\
+          \"\"\n    blocks = _parse_crawler_text(crawler_text)\n    if not blocks:\n\
+          \        # 上游是 \"本次没有抓取到…\" / \"抓取失败：…\" 之类的提示：原样返回\n        return _as_text(crawler_text).strip()\
+          \ or EMPTY_TEXT\n    db_keys = _db_name_keys(db_text)\n    if db_keys is\
+          \ None:\n        # 没拿到数据库数据 / 解析失败：不过滤，保证不丢活动\n        return _render(blocks)\n\
+          \    kept = [block for block in blocks if _name_key(block[0]) not in db_keys]\n\
+          \    return _render(kept)\n\n\n# ---------------------------------------------------------------------------\n\
+          # 5. Dify 入口\n# ---------------------------------------------------------------------------\n\
+          def main(**kwargs):\n    \"\"\"Dify 代码节点入口：永远返回 {\"text\": \"...\"}，不抛异常。\"\
+          \"\"\n    crawler_text = \"\"\n    text = EMPTY_TEXT\n    try:\n       \
+          \ kwargs = kwargs or {}\n        crawler_text = _as_text(_pick(kwargs, _TEXT1_KEYS))\n\
+          \        db_text = _as_text(_pick(kwargs, _TEXT2_KEYS))\n        text =\
+          \ filter_activities(crawler_text, db_text)\n    except Exception:\n    \
+          \    # 兜底：至少把爬虫原文还回去，绝不因为过滤失败把活动弄丢\n        text = crawler_text.strip()\
+          \ or EMPTY_TEXT\n    # 只返回节点里声明过的键，多一个少一个都会让 Dify 报\n    # \"Not all output\
+          \ parameters are validated.\"\n    return {\"text\": text}\n\n\n# ---------------------------------------------------------------------------\n\
+          # 部署到 Dify「代码执行」节点：\n#   1) 整份文件粘进节点（Python 3，纯标准库）；\n#   2) 输出变量只声明一个：text（String）；\n\
+          #   3) 输入变量声明 text1、text2（String），分别映射爬虫节点.text\n#      和「查询行」节点的 text（或\
+          \ json）；\n#   4) 返回空时是 \"共 0 场活动：\"，下游可直接判断或照常推送。\n# ---------------------------------------------------------------------------\n"
+        code_language: python3
+        outputs:
+          text:
+            children: null
+            type: string
+        selected: false
+        title: 根据数据库去重
+        type: code
+        variables:
+        - value_selector:
+          - '1792311372098'
+          - text
+          value_type: string
+          variable: text1
+        - value_selector:
+          - '1792809298130'
+          - text
+          value_type: string
+          variable: text2
+      height: 50
+      id: '1792809593300'
+      position:
+        x: 1405
+        y: 191.4047619047619
+      positionAbsolute:
+        x: 1405
+        y: 191.4047619047619
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "# -*- coding: utf-8 -*-\n\"\"\"build_insert_sql.py —— Dify「代码执行」节点：把去重后的活动文本转成一条\
+          \ INSERT 语句。\n\n上游\n----\n过滤节点输出的 text（形如 \"共 24 场活动：\\n1. 活动名称\\n   组织机构：...\\\
+          n   活动时间：...\"）。\n也兼容直接把 {\"text\": \"...\"} 整段当字符串传进来。\n\n下游\n----\n把 sql\
+          \ 变量喂给 SQLite 插件「插入行（Insert Rows）」节点的 insert_sql 参数：\n    INSERT OR IGNORE\
+          \ INTO activities (...) VALUES (...), (...), ...;\n为什么用一条多行 INSERT 而不是每行一次：\n\
+          \  - 插件是 conn.execute()，一次只能执行一条语句，不能写多个分号；\n  - INSERT OR IGNORE + UNIQUE(来源系统,活动名称,活动时间)\
+          \ 天然幂等，重复跑不会出重复行；\n  - 没有活动时输出一条 \"INSERT ... SELECT NULL WHERE 0;\" 空语句，插件不会报错。\n\
+          \nDify 硬约束\n-----------\n1. 入口 def main(**kwargs) -> dict；\n2. 输出变量声明 sql(String)\
+          \ / text(String) / count(Number) 三个；多一个少一个都会报\n   \"Not all output parameters\
+          \ are validated.\"；\n3. 顶层不能有 print / 读写文件 / 自执行；\n4. 只用标准库。\n\n输入变量：text（String，接过滤节点的\
+          \ text）\n输出变量：sql（String，接插入行节点的 insert_sql）、text（String，给通知用）、count（Number，本批条数）\n\
+          \n字段缺失时写 NULL；数据库里没有的字段（例如「链接」）自动丢弃。\n\"\"\"\n\nimport datetime\nimport\
+          \ json\nimport re\n\n_COLUMNS = (\"来源系统\", \"活动名称\", \"活动时间\", \"活动地点\"\
+          , \"组织机构\", \"联系人\",\n            \"联系电话\", \"志愿时长\", \"招募人数\", \"活动类型\"\
+          , \"活动学时\", \"抓取时间\")\n\n_TEXT_KEYS = (\"text\", \"text1\", \"crawler_text\"\
+          , \"filtered_text\", \"input_text\",\n              \"内容\", \"活动文本\")\n\n\
+          _HEADER_RE = re.compile(r\"^共\\s*\\d+\\s*场活动\\s*[:：]?\\s*$\")\n_ENTRY_RE\
+          \ = re.compile(r\"^(\\d+)\\s*[.、．)）]\\s*(.*)$\")\n_KV_RE = re.compile(r\"\
+          ^([^:：]{1,12})\\s*[:：]\\s*(.*)$\")\n_NOTE_RE = re.compile(r\"(抓取失败|没有抓取到|未抓取到|没有符合|暂无|没有活动|本次没有)\"\
+          )\n_BLANK_CHARS = (\"\\ufeff\", \"\\u200b\", \"\\u200c\", \"\\u200d\", \"\
+          \\u3000\", \"\\xa0\")\n\nEMPTY_SQL = 'INSERT OR IGNORE INTO activities (\"\
+          活动名称\") SELECT NULL WHERE 0;'\n\n# 表里 NOT NULL 的列：缺了就不能写，只能跳过（INSERT OR\
+          \ IGNORE 也会整行丢弃）\n_REQUIRED = (\"来源系统\", \"活动名称\", \"活动时间\", \"抓取时间\")\n\
+          \n\ndef _as_text(value):\n    if value is None:\n        return \"\"\n \
+          \   if isinstance(value, str):\n        return value\n    try:\n       \
+          \ return str(value)\n    except Exception:\n        return \"\"\n\n\ndef\
+          \ _pick(kwargs, names):\n    for name in names:\n        if name in kwargs:\n\
+          \            value = kwargs[name]\n            if value is not None and\
+          \ value != \"\":\n                return value\n    return \"\"\n\n\ndef\
+          \ _unwrap(raw):\n    \"\"\"模板里可能误传了整个 {\"text\": \"...\"}；能解就取里面的 text。\"\
+          \"\"\n    text = _as_text(raw).strip()\n    if text.startswith(\"{\") and\
+          \ '\"text\"' in text:\n        try:\n            parsed = json.loads(text)\n\
+          \            if isinstance(parsed, dict) and isinstance(parsed.get(\"text\"\
+          ), str):\n                return parsed[\"text\"]\n        except Exception:\n\
+          \            pass\n    return text\n\n\ndef _clean(value):\n    text = _as_text(value)\n\
+          \    for ch in _BLANK_CHARS:\n        text = text.replace(ch, \" \")\n \
+          \   return re.sub(r\"\\s+\", \" \", text).strip()\n\n\ndef _parse_blocks(raw):\n\
+          \    \"\"\"-> [[标题, {字段: 值}, ...], ...]\"\"\"\n    blocks = []\n    current\
+          \ = None\n    for line in _unwrap(raw).splitlines():\n        if not line.strip():\n\
+          \            continue\n        stripped = line.strip()\n        if _HEADER_RE.match(stripped):\n\
+          \            continue\n        if line[0].isspace():\n            if current\
+          \ is None:\n                continue\n            match = _KV_RE.match(stripped)\n\
+          \            if match is not None:\n                key = _clean(match.group(1))\n\
+          \                value = _clean(match.group(2))\n                if value:\n\
+          \                    current[1][key] = value\n            continue\n   \
+          \     entry = _ENTRY_RE.match(stripped)\n        if entry is not None:\n\
+          \            current = [_clean(entry.group(2)), {}]\n        elif _NOTE_RE.search(stripped):\n\
+          \            # \"本次没有抓取到…\" / \"抓取失败：…\" 之类的提示不是活动\n            current\
+          \ = None\n            continue\n        else:\n            current = [_clean(stripped),\
+          \ {}]\n        blocks.append(current)\n    return blocks\n\n\ndef _guess_system(fields,\
+          \ title):\n    \"\"\"根据字段组合判断来源系统。\"\"\"\n    if fields.get(\"活动类型\") or\
+          \ fields.get(\"活动学时\"):\n        return \"辅学系统\"\n    link = fields.get(\"\
+          链接\", \"\")\n    if fields.get(\"组织机构\") or fields.get(\"志愿时长\") or \"zyfw\"\
+          \ in link:\n        return \"志愿系统\"\n    return \"未知系统\"\n\n\ndef _grab_time():\n\
+          \    \"\"\"抓取时间：Asia/Shanghai（UTC+8），用带时区对象计算，容器时区不影响。\"\"\"\n    now =\
+          \ datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))\n\
+          \    return now.strftime(\"%Y-%m-%d %H:%M:%S\")\n\n\ndef _sql_literal(value):\n\
+          \    if value is None or value == \"\":\n        return \"NULL\"\n    return\
+          \ \"'\" + _as_text(value).replace(\"'\", \"''\") + \"'\"\n\n\ndef build_rows(raw_text,\
+          \ grab_time=\"\"):\n    \"\"\"文本 -> ([{列: 值}], 跳过条数)。缺 NOT NULL 字段的条目只能跳过。\"\
+          \"\"\n    grab_time = _clean(grab_time) or _grab_time()\n    rows = []\n\
+          \    skipped = 0\n    seen = set()\n    blocks = _parse_blocks(raw_text)\n\
+          \    # 过滤节点已经去过重，这里再按「来源系统+名称+时间」兜一次，防止同批重复\n    for title, fields in blocks:\n\
+          \        name = _clean(title)\n        if not name:\n            continue\n\
+          \        row = {column: None for column in _COLUMNS}\n        row[\"来源系统\"\
+          ] = _guess_system(fields, name)\n        row[\"活动名称\"] = name\n        for\
+          \ column in (\"活动时间\", \"活动地点\", \"组织机构\", \"联系人\", \"联系电话\",\n        \
+          \               \"志愿时长\", \"招募人数\", \"活动类型\", \"活动学时\"):\n            row[column]\
+          \ = fields.get(column) or None\n        row[\"抓取时间\"] = grab_time\n    \
+          \    # 活动时间 / 活动名称 等都是 NOT NULL，缺了就写不进去\n        if any(not row.get(column)\
+          \ for column in _REQUIRED):\n            skipped += 1\n            continue\n\
+          \        key = (row[\"来源系统\"], row[\"活动名称\"], row[\"活动时间\"])\n        if\
+          \ key in seen:\n            continue\n        seen.add(key)\n        rows.append(row)\n\
+          \    return rows, skipped\n\n\ndef build_sql(rows):\n    \"\"\"-> 一条 INSERT\
+          \ OR IGNORE 语句；rows 为空时返回空操作语句。\"\"\"\n    if not rows:\n        return\
+          \ EMPTY_SQL\n    column_sql = \", \".join('\"%s\"' % column for column in\
+          \ _COLUMNS)\n    value_sql = \",\\n\".join(\n        \"(\" + \", \".join(_sql_literal(row.get(column))\
+          \ for column in _COLUMNS) + \")\"\n        for row in rows\n    )\n    return\
+          \ 'INSERT OR IGNORE INTO activities (%s) VALUES\\n%s;' % (column_sql, value_sql)\n\
+          \n\ndef build_summary(rows, skipped=0):\n    total = len(rows)\n    if total\
+          \ == 0:\n        base = \"共 0 条待写入：数据库里都已有，无需插入。\"\n    else:\n        counter\
+          \ = {}\n        for row in rows:\n            system = row[\"来源系统\"]\n \
+          \           counter[system] = counter.get(system, 0) + 1\n        detail\
+          \ = \" / \".join(\"%s %d 条\" % (key, value) for key, value in counter.items())\n\
+          \        base = \"共 %d 条待写入（%s）。\" % (total, detail)\n    if skipped:\n\
+          \        base += \"另有 %d 条缺少「活动时间」等必填字段，已跳过。\" % skipped\n    return base\n\
+          \n\ndef main(**kwargs):\n    \"\"\"Dify 代码节点入口。\"\"\"\n    text = \"\"\n\
+          \    sql = EMPTY_SQL\n    count = 0\n    try:\n        kwargs = kwargs or\
+          \ {}\n        text = _as_text(_pick(kwargs, _TEXT_KEYS))\n        rows,\
+          \ skipped = build_rows(text, _pick(kwargs, (\"grab_time\", \"now_time\"\
+          , \"当前时间\")))\n        sql = build_sql(rows)\n        count = len(rows)\n\
+          \        summary = build_summary(rows, skipped)\n    except Exception as\
+          \ err:  # 任何异常都不让工作流挂掉\n        sql = EMPTY_SQL\n        count = 0\n   \
+          \     summary = \"生成插入 SQL 失败：%s: %s\" % (type(err).__name__, err)\n   \
+          \ return {\"sql\": sql, \"text\": summary, \"count\": count}\n"
+        code_language: python3
+        outputs:
+          count:
+            children: null
+            type: number
+          sql:
+            children: null
+            type: string
+          text:
+            children: null
+            type: string
+        selected: false
+        title: 计算SQL代码
+        type: code
+        variables:
+        - value_selector:
+          - '1792809593300'
+          - text
+          value_type: string
+          variable: text
+      height: 50
+      id: '1792810683941'
+      position:
+        x: 1766
+        y: 112.4047619047619
+      positionAbsolute:
+        x: 1766
+        y: 112.4047619047619
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The SQL statement to insert rows. It must start with INSERT. Example,
+              INSERT INTO users values 1 Alice alice@example.com
+            ja_JP: 行を挿入するための SQL 文。INSERT で始まる必要があります。例,INSERT INTO users values 1
+              Alice alice@example.com
+            pt_BR: A instrução SQL para inserir linhas. Deve começar com INSERT. Exemplo,INSERT
+              INTO users values 1 Alice alice@example.com
+            zh_Hans: 用于插入行的 SQL 语句。必须以 INSERT 开头。例如,INSERT INTO users values 1 Alice
+              alice@example.com
+          label:
+            en_US: INSERT SQL Statement
+            ja_JP: INSERT SQL 文
+            pt_BR: Instrução SQL INSERT
+            zh_Hans: INSERT SQL 语句
+          llm_description: The SQL INSERT statement to execute. It must start with
+            INSERT. Example,INSERT INTO users values 1 Alice alice@example.com
+          max: null
+          min: null
+          name: insert_sql
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          insert_sql: ''
+        plugin_id: langgenius/sqlite
+        plugin_unique_identifier: langgenius/sqlite:0.0.7@740c8b932eb0b067bf84079eef3eca0bd67eb3989f76ba026c8f8ef490d056d8
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=d409ca03-339a-4546-8c44-1eec906dd9ff&filename=41d42dd6aa697ee17cfeb17caed858ff048242bff4801b2719e50d0d0fbfc4da.svg
+        provider_id: langgenius/sqlite/sqlite
+        provider_name: langgenius/sqlite/sqlite
+        provider_show_name: SQLite
+        provider_type: builtin
+        selected: false
+        title: 插入行
+        tool_configurations: {}
+        tool_description: 使用提供的 SQL INSERT 语句向 SQLite 数据库中的表插入行
+        tool_label: 插入行
+        tool_name: insert_sql
+        tool_node_version: '2'
+        tool_parameters:
+          insert_sql:
+            type: mixed
+            value: '{{#1792810683941.sql#}}'
+        type: tool
+      height: 50
+      id: '1792810929242'
+      position:
+        x: 2107
+        y: 120.73809523809524
+      positionAbsolute:
+        x: 2107
+        y: 120.73809523809524
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: e70ae6d7-5fd4-40eb-bc30-48eef0b6566a
+            value: 共 0 场活动：
+            varType: string
+            variable_selector:
+            - '1792809593300'
+            - text
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 146
+      id: '1792811241613'
+      position:
+        x: 1766
+        y: 242.4047619047619
+      positionAbsolute:
+        x: 1766
+        y: 242.4047619047619
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: 106.02729843611075
+      y: 195.70936841403534
+      zoom: 0.5305007982786394
+  rag_pipeline_variables: []
